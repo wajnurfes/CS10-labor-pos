@@ -32,10 +32,9 @@ class SideNav extends Component {
   };
   render() {
     const { classes } = this.props;
-    //let user_premium = localStorage.getItem("USER_PREMIUM");
-    //if (user_premium === "true") user_premium = true;
-    //else user_premium = false;
-    let user_premium = true;
+    let user_premium = localStorage.getItem('USER_PREMIUM');
+    if (user_premium === 'true') user_premium = true;
+    else user_premium = false;
     const path = this.props.location.pathname;
     return (
       <div className={classNames(classes.sidenav, classes.sidenavFull)}>
