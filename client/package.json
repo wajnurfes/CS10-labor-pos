@@ -9,12 +9,9 @@
     "apollo-boost": "^0.1.15",
     "apollo-client": "^2.3.8",
     "apollo-link-context": "^1.0.8",
-    "apollo-link-ws": "^1.0.8",
     "axios": "^0.18.0",
-    "dotenv": "^6.0.0",
     "formik": "^2",
     "graphql": "^0.13.0",
-    "netlify-cli": "^2.0.0-beta.3",
     "react": "^17.0.1",
     "react-apollo": "^2.1.11",
     "react-dom": "^17",
@@ -24,11 +21,7 @@
     "react-scripts": "^4",
     "react-stripe-checkout": "^2.6.3",
     "react-stripe-elements": "^2.0.1",
-    "react-test-renderer": "^16.5.2",
-    "route-parser": "^0.0.5",
-    "sendgrid": "^5.2.3",
     "source-map-explorer": "^1.6.0",
-    "subscriptions-transport-ws": "^0.9.14",
     "yup": "^0.26.6"
   },
   "scripts": {
@@ -40,8 +33,7 @@
   },
   "devDependencies": {
     "enzyme": "^3.7.0",
-    "enzyme-adapter-react-16": "^1.6.0",
-    "react-app-env": "^1.2.2"
+    "enzyme-adapter-react-16": "^1.6.0"
   },
   "browserslist": {
     "production": [
