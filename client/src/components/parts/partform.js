@@ -213,7 +213,6 @@ class PartForm extends Component {
                                     {job.label}
                                   </option>
                                 ))}
-                                >
                               </Field>
                               <div
                                 style={{ width: "90%" }}
