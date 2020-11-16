@@ -87,7 +87,7 @@ class Checkout extends Component {
       })
     })
       .then(res => {
-        console.log(res.data.data.updateUser.user.premium);
+        // console.log(res.data.data.updateUser.user.premium);
         localStorage.setItem(
           "USER_PREMIUM",
           res.data.data.updateUser.user.premium
