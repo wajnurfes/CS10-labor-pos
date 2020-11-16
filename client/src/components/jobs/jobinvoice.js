@@ -9,7 +9,7 @@ var axios = require("axios");
 //https://balsamiq.cloud/sc1hpyg/po5pcja/rA6BD
 class JobInvoice extends Component {
   constructor(props) {
-    super(props);
+    super();
     this.state = { ...props };
   }
 

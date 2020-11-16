@@ -63,7 +63,7 @@ const steps = ["Account details", "Contact information"];
 class Wizard extends Component {
   static Page = ({ children }) => children;
   constructor(props) {
-    super(props);
+    super();
     this.state = {
       page: 0,
       values: props.initialValues,
