@@ -117,7 +117,7 @@ class NoteForm extends Component {
                 event.preventDefault();
               }}
             >
-              {({ values, isValid }) => {
+              {({ values, isValid, dirty }) => {
                 //  This mutation will submit either a create user or update user mutation
                 //  using the values from our form fields depending on the component mode.
                 return (
@@ -302,7 +302,7 @@ class NoteForm extends Component {
                               </Button>
                             </Hidden>
                             <Button
-                              disabled={!isValid}
+                              disabled={!isValid || !dirty}
                               variant="contained"
                               color="primary"
                               className={classes.padded_button}

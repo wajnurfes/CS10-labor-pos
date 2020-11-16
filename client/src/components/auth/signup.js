@@ -144,7 +144,7 @@ class Wizard extends Component {
         enableReinitialize={false}
         validationSchema={ValidationSchemas[page]}
         onSubmit={this.handleSubmit}
-        render={({ values, handleSubmit, isValid }) => (
+        render={({ values, handleSubmit, isValid, dirty }) => (
           <Mutation
             mutation={CREATE_USER}
             errorPolicy="all"
@@ -210,7 +210,7 @@ class Wizard extends Component {
                       type="submit"
                       variant="contained"
                       color="primary"
-                      disabled={!isValid}
+                      disabled={!isValid || !dirty}
                       onClick={e => {
                         e.preventDefault();
                         this.submit(createUser, values, e);

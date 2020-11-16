@@ -93,7 +93,7 @@ class ClientForm extends Component {
           event.preventDefault();
         }}
       >
-        {({ values, isValid }) => {
+        {({ values, isValid, dirty }) => {
           return (
             // This will submit either a create client or update client mutation
             <Mutation
@@ -297,7 +297,7 @@ class ClientForm extends Component {
                       >
                         <Button
                           type="submit"
-                          disabled={!isValid}
+                          disabled={!isValid || !dirty}
                           variant="contained"
                           color="primary"
                           className={classes.padded_button}

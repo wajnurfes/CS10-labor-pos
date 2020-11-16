@@ -94,7 +94,7 @@ class Settings extends Component {
           event.preventDefault();
         }}
       >
-        {({ values, isValid }) => {
+        {({ values, isValid, dirty }) => {
           const paid_until = new Date(values.paidUntil);
           return (
             <Mutation
@@ -359,7 +359,7 @@ class Settings extends Component {
                           variant="contained"
                           color="primary"
                           type="submit"
-                          disabled={!isValid}
+                          disabled={!isValid || !dirty}
                         >
                           Save Changes
                         </Button>

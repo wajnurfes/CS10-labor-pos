@@ -100,7 +100,7 @@ class JobForm extends Component {
                 event.preventDefault();
               }}
             >
-              {({ values, isValid }) => {
+              {({ values, isValid, dirty }) => {
                 return (
                   <Mutation
                     mutation={chosen_mutation}
@@ -254,7 +254,7 @@ class JobForm extends Component {
                                 </Button>
                               </Hidden>
                               <Button
-                                disabled={!isValid}
+                                disabled={!isValid || !dirty}
                                 variant="contained"
                                 color="primary"
                                 className={classes.padded_button}

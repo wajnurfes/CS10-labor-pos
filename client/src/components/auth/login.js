@@ -38,7 +38,7 @@ class Login extends Component {
           event.preventDefault();
         }}
       >
-        {({ values, isValid }) => {
+        {({ values, isValid, dirty }) => {
           return (
             <Mutation
               mutation={SIGNIN_MUTATION}
@@ -114,7 +114,7 @@ class Login extends Component {
                           <Button
                             variant='contained'
                             color='primary'
-                            disabled={!isValid}
+                            disabled={!isValid || !dirty}
                             type='submit'
                             className={classNames(
                               classes.margin,
