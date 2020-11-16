@@ -24,11 +24,13 @@ class App extends Component {
   };
 
   render() {
+
+    console.log(React.version);
+    
     //  The app will default to a light theme unless the dark_theme variable is set.
 
     let primary_color = yellow;
     let secondary_color = amber;
-
     let textfield_color = "#130e00";
     let background_image = desk_image;
     let theme_type = "dark";
