@@ -29,11 +29,6 @@ const Settings = Loadable({
   loading: Loading
 });
 
-const Billing = Loadable({
-  loader: () => import("../../components/billing/billing.js"),
-  loading: Loading
-});
-
 const AddPart = Loadable({
   loader: () => import("../../components/parts/addpart.js"),
   loading: Loading
@@ -201,7 +196,6 @@ class Home extends Component {
             <Route exact path="/notes/:id" component={NoteView} />
             <Route exact path="/notes/:id/edit" component={EditNote} />
             <Route exact path="/settings" component={Settings} />
-            <Route exact path="/billing" component={Billing} />
             <Route exact path="/createpart" component={AddPart} />
             <Route exact path="/parts/:id" component={PartView} />
             <Route exact path="/parts/:id/edit" component={EditPart} />

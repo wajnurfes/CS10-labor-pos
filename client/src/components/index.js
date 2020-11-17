@@ -1,6 +1,4 @@
-import Billing from "./billing/billing";
 import CardList from "./reusable/cardlist.js";
-import Checkout from "./billing/checkout";
 import ClientForm from "./clients/clientform";
 import CreateUser from "./auth/signup.js";
 import EditClient from "./clients/editclient.js";
@@ -17,9 +15,7 @@ import Start from "./home/start";
 import TextField from "./material-ui/textfield.js";
 
 export {
-  Billing,
   CardList,
-  Checkout,
   ClientForm,
   CreateUser,
   EditClient,

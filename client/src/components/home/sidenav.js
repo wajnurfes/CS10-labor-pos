@@ -96,12 +96,6 @@ class SideNav extends Component {
             </Typography>
           </MenuItem>{' '}
         </Link>
-        <Link to='/billing'>
-          {' '}
-          <MenuItem selected={path.includes('billing')}>
-            <Typography className={classes.typography_menu}>Billing</Typography>
-          </MenuItem>{' '}
-        </Link>
         <Hidden xsUp={!user_premium}>
           <ExpansionPanel
             onChange={this.handleChange}

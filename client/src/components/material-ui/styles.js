@@ -9,11 +9,6 @@ const styles = theme => ({
     letterSpacing: "1.2px"
   },
   background_color: theme.palette.background.paper,
-  billing: {
-    fontFamily: "Source Sans Pro, Arial, serif",
-    fontSize: "20px",
-    lineHeight: "12dp"
-  },
   blackfont: {
     color: "#000000"
   },
@@ -297,10 +292,6 @@ const styles = theme => ({
   typography_title: {
     fontSize: "40px",
     fontFamily: "'Cinzel', serif"
-  },
-  typography_title_checkout: {
-    fontFamily: "'Cinzel', serif",
-    fontSize: "32px"
   },
   typography_title_landing: {
     fontFamily: "'Cinzel', serif",
