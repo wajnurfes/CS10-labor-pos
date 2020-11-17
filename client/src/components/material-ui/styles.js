@@ -1,6 +1,6 @@
 const styles = theme => ({
   add_button: {
-    margin: theme.spacing.unit * 3,
+    margin: theme.spacing(3),
     backgroundColor: "#ffeb3b"
   },
   add_text: {
@@ -18,8 +18,8 @@ const styles = theme => ({
     color: "#000000"
   },
   button: {
-    marginTop: theme.spacing.unit * 3,
-    marginLeft: theme.spacing.unit
+    marginTop: theme.spacing(3),
+    marginLeft: theme.spacing(1)
   },
   buttons: {
     display: "flex",
@@ -37,12 +37,12 @@ const styles = theme => ({
     marginTop: "32px"
   },
   dark_paper: {
-    marginLeft: theme.spacing.unit * 2,
-    marginRight: theme.spacing.unit * 2,
-    padding: theme.spacing.unit,
+    marginLeft: theme.spacing(2),
+    marginRight: theme.spacing(2),
+    padding: theme.spacing(1),
     backgroundColor: theme.palette.background.paper,
-    [theme.breakpoints.up(600 + theme.spacing.unit * 2)]: {
-      padding: theme.spacing.unit
+    [theme.breakpoints.up(600 + theme.spacing(2))]: {
+      padding: theme.spacing(1)
     }
   },
   delete: {
@@ -104,9 +104,9 @@ const styles = theme => ({
   },
   layout: {
     width: "auto",
-    marginLeft: theme.spacing.unit * 2,
-    marginRight: theme.spacing.unit * 2,
-    [theme.breakpoints.up(600 + theme.spacing.unit * 2 * 2)]: {
+    marginLeft: theme.spacing(2),
+    marginRight: theme.spacing(2),
+    [theme.breakpoints.up(600 + theme.spacing(4))]: {
       width: 600,
       marginLeft: "auto",
       marginRight: "auto"
@@ -135,7 +135,7 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.default
   },
   margin: {
-    margin: theme.spacing.unit * 2
+    margin: theme.spacing(2)
   },
   menuitems: {
     color: `${theme.palette.text.primary} !important`,
@@ -168,17 +168,17 @@ const styles = theme => ({
     fontSize: "14px"
   },
   paper: {
-    marginTop: theme.spacing.unit * 2,
-    marginBottom: theme.spacing.unit * 2,
-    marginLeft: theme.spacing.unit * 2,
-    marginRight: theme.spacing.unit * 2,
-    padding: theme.spacing.unit * 2,
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(2),
+    marginLeft: theme.spacing(2),
+    marginRight: theme.spacing(2),
+    padding: theme.spacing(2),
     backgroundColor: theme.palette.background.default,
     // maxWidth: "80%",
-    [theme.breakpoints.up(600 + theme.spacing.unit * 3 * 2)]: {
-      marginTop: theme.spacing.unit * 3,
-      marginBottom: theme.spacing.unit * 3,
-      padding: theme.spacing.unit * 3
+    [theme.breakpoints.up(600 + theme.spacing(6))]: {
+      marginTop: theme.spacing(3),
+      marginBottom: theme.spacing(3),
+      padding: theme.spacing(3)
     }
   },
   paper_color: {
@@ -243,7 +243,7 @@ const styles = theme => ({
     width: "80% !important"
   },
   stepper: {
-    padding: `${theme.spacing.unit * 3}px 0 ${theme.spacing.unit * 5}px`,
+    padding: `${theme.spacing(3)}px 0 ${theme.spacing(5)}px`,
     backgroundColor: theme.palette.background.default
   },
   text_color: {
@@ -309,8 +309,8 @@ const styles = theme => ({
     textShadow: "1px 2px 4px goldenrod"
   },
   zipcode_settings: {
-    marginTop: theme.spacing.unit * 2,
-    marginBottom: theme.spacing.unit * 2
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(2)
   }
 });
 export { styles };
