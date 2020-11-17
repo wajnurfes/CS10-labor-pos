@@ -144,7 +144,8 @@ class Wizard extends Component {
         enableReinitialize={false}
         validationSchema={ValidationSchemas[page]}
         onSubmit={this.handleSubmit}
-        render={({ values, handleSubmit, isValid, dirty }) => (
+      >
+        {({ values, handleSubmit, isValid, dirty }) => (
           <Mutation
             mutation={CREATE_USER}
             errorPolicy="all"
@@ -223,8 +224,8 @@ class Wizard extends Component {
               </Form>
             )}
           </Mutation>
-        )}
-      />
+        )} 
+      </Formik>
     );
   }
 }
