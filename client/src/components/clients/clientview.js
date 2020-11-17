@@ -201,7 +201,6 @@ class ClientView extends Component {
               <Tabs
                 value={this.state.value}
                 onChange={this.handleChange}
-                fullWidth
                 indicatorColor="secondary"
                 textColor="secondary"
               >
