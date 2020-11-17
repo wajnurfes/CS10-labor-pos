@@ -127,7 +127,7 @@ class Settings extends Component {
                       <Grid item xs={6}>
                         <br />
                         <Typography
-                          variant="title"
+                          variant="h6"
                           className={classes.typography_title}
                         >
                           Settings
@@ -149,7 +149,7 @@ class Settings extends Component {
                         <Grid item xs={12} md={6}>
                           <Typography
                             className={classes.typography}
-                            variant="subheading"
+                            variant="subtitle1"
                           >
                             Change Password
                           </Typography>
@@ -196,7 +196,7 @@ class Settings extends Component {
                       <Grid item xs={12} md={6}>
                         <Typography
                           className={classes.typography}
-                          variant="subheading"
+                          variant="subtitle1"
                         >
                           Business Name
                         </Typography>
@@ -222,7 +222,7 @@ class Settings extends Component {
                       <Grid item xs={12}>
                         <Typography
                           className={classes.typography}
-                          variant="subheading"
+                          variant="subtitle1"
                         >
                           Name
                         </Typography>
@@ -264,7 +264,7 @@ class Settings extends Component {
                       <Grid item xs={12}>
                         <Typography
                           className={classes.typography}
-                          variant="subheading"
+                          variant="subtitle1"
                         >
                           Contact Information
                         </Typography>

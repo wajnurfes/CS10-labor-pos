@@ -136,7 +136,7 @@ class ClientForm extends Component {
                       <Grid item xs={12}>
                         <br />
                         <Typography
-                          variant="title"
+                          variant="h6"
                           className={classes.typography_title}
                         >
                           {title_text}

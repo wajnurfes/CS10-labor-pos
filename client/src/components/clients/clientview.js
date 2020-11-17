@@ -121,7 +121,7 @@ class ClientView extends Component {
                     </Link>
                   </Grid>
                   <Grid item xs={10}>
-                    <Typography className={classes.typography} variant="title">
+                    <Typography className={classes.typography} variant="h6">
                       <span className={classes.highlight}>{name}</span>
                     </Typography>
                   </Grid>
@@ -140,7 +140,7 @@ class ClientView extends Component {
                   <Grid item xs={12} md={6}>
                     <Typography
                       align="left"
-                      variant="subheading"
+                      variant="subtitle1"
                       className={classes.space_above}
                     >
                       <b>Business Name:</b> &nbsp; &nbsp;{" "}
@@ -150,7 +150,7 @@ class ClientView extends Component {
                   <Grid item xs={12} md={6}>
                     <Typography
                       align="left"
-                      variant="subheading"
+                      variant="subtitle1"
                       className={classes.space_above}
                     >
                       <b>Street Address:</b> &nbsp; &nbsp;
@@ -160,7 +160,7 @@ class ClientView extends Component {
                   <Grid item xs={12} md={6}>
                     <Typography
                       align="left"
-                      variant="subheading"
+                      variant="subtitle1"
                       className={classes.space_above}
                     >
                       <b>Name:</b> &nbsp; &nbsp;{" "}
@@ -170,7 +170,7 @@ class ClientView extends Component {
                   <Grid item xs={12} md={2}>
                     <Typography
                       align="left"
-                      variant="subheading"
+                      variant="subtitle1"
                       className={classes.space_above}
                     >
                       <b>City:</b> &nbsp; &nbsp;
@@ -180,7 +180,7 @@ class ClientView extends Component {
                   <Grid item xs={12} md={2}>
                     <Typography
                       align="left"
-                      variant="subheading"
+                      variant="subtitle1"
                       className={classes.space_above}
                     >
                       <b>State:</b> &nbsp; &nbsp; {data.client.state}
@@ -189,7 +189,7 @@ class ClientView extends Component {
                   <Grid item xs={12} md={2}>
                     <Typography
                       align="left"
-                      variant="subheading"
+                      variant="subtitle1"
                       className={classes.space_above}
                     >
                       <b>Zip:</b> &nbsp; &nbsp; {data.client.zipcode}
@@ -212,7 +212,7 @@ class ClientView extends Component {
                   <Typography
                     className={classes.typography}
                     align="left"
-                    variant="subheading"
+                    variant="subtitle1"
                     paragraph
                   >
                     {user_premium && (
@@ -258,7 +258,7 @@ class ClientView extends Component {
                     className={classes.typography}
                     paragraph
                     align="left"
-                    variant="subheading"
+                    variant="subtitle1"
                   >
                     {user_premium && (
                       <Button

@@ -22,7 +22,7 @@ class Parts extends Component {
           if (error) return <Typography>Error! {error.message}</Typography>;
           return (
             <div className={classes.margin}>
-              <Typography className={classes.typography} variant="title">
+              <Typography className={classes.typography} variant="h6">
                 Parts
               </Typography>
               <Typography className={classes.typography_count}>

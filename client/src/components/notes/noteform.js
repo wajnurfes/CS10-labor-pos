@@ -160,7 +160,7 @@ class NoteForm extends Component {
                           <Grid container>
                             <Grid container justify="center">
                               <Typography
-                                variant="title"
+                                variant="h6"
                                 className={classes.typography_title}
                                 style={{ marginBottom: "20px" }}
                                 align="center"

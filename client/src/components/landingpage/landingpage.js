@@ -125,7 +125,7 @@ class LandingPage extends Component {
           <div>
             <Typography
               className={classes.typography_title_landing}
-              variant="title"
+              variant="h6"
             >
               Contract Alchemy:
               <br />
@@ -135,7 +135,7 @@ class LandingPage extends Component {
               {"Tired of balancing multiple projects?"} <br />
               {"Struggling to keep track of how much you’re owed from whom?"}
             </Typography>
-            <Typography variant="title" className={classes.emphasis}>
+            <Typography variant="h6" className={classes.emphasis}>
               Struggle no more!
             </Typography>
             <Button

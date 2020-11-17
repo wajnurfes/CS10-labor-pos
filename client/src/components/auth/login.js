@@ -47,7 +47,7 @@ class Login extends Component {
             >
               {(tokenAuth, { loading, error }) => (
                 <Paper>
-                  <Typography variant='display1' align='center'>
+                  <Typography variant='h4' align='center'>
                     Log In
                   </Typography>
 

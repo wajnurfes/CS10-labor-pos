@@ -32,7 +32,7 @@ class Start extends Component {
           spacing={24}
         >
           <Grid item xs={12}>
-            <Typography className={classes.typography_title} variant="title">
+            <Typography className={classes.typography_title} variant="h6">
               Home
             </Typography>
             <br />
@@ -53,7 +53,7 @@ class Start extends Component {
                     <Grid item xs={12}>
                       <Typography
                         className={classes.typography_start}
-                        variant="title"
+                        variant="h6"
                       >
                         View <br /> Clients
                       </Typography>
@@ -78,7 +78,7 @@ class Start extends Component {
                     <Grid item xs={12}>
                       <Typography
                         className={classes.typography_start}
-                        variant="title"
+                        variant="h6"
                       >
                         View <br /> Jobs
                       </Typography>
@@ -101,7 +101,7 @@ class Start extends Component {
                     <Grid item xs={12}>
                       <Typography
                         className={classes.typography_start}
-                        variant="title"
+                        variant="h6"
                       >
                         View <br /> Notes
                       </Typography>

@@ -164,7 +164,7 @@ class JobView extends Component {
                   </Grid>
                   <Grid item xs={8}>
                     <Typography
-                      variant="title"
+                      variant="h6"
                       className={classes.typography_title}
                     >
                       {data.job.name}

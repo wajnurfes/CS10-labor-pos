@@ -127,7 +127,7 @@ class PartForm extends Component {
                             <Grid container justify="center">
                               <Typography
                                 className={classes.typography_title}
-                                variant="title"
+                                variant="h6"
                                 style={{ marginBottom: "20px" }}
                               >
                                 {title_text}

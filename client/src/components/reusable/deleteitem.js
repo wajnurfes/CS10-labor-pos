@@ -56,7 +56,7 @@ class DeleteItem extends Component {
       <Paper className={classes.paper}>
         <Grid container>
           <Grid item xs={10} className={classes.delete}>
-            <Typography variant="title" paragraph>
+            <Typography variant="h6" paragraph>
               Are you sure you want to delete {name}?
             </Typography>
           </Grid>

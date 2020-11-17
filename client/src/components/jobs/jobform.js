@@ -134,7 +134,7 @@ class JobForm extends Component {
                           <Grid container justify="center">
                             <Grid container justify="center">
                               <Typography
-                                variant="title"
+                                variant="h6"
                                 className={classes.typography_title}
                               >
                                 {title_text}

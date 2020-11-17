@@ -21,7 +21,7 @@ class Jobs extends Component {
           if (error) return <Typography>Error! {error.message}</Typography>;
           return (
             <div className={classes.margin}>
-              <Typography className={classes.typography_title} variant="title">
+              <Typography className={classes.typography_title} variant="h6">
                 Jobs
               </Typography>
               <Typography className={classes.typography_subtitle} align="left">

@@ -82,7 +82,7 @@ class NoteView extends Component {
                 </Grid>
                 <Grid item xs={8}>
                   <Typography
-                    variant="title"
+                    variant="h6"
                     className={classes.typography_title}
                   >
                     {data.note.title}
