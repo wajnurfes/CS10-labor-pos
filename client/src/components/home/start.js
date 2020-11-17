@@ -29,7 +29,7 @@ class Start extends Component {
           direction="row"
           justify="space-around"
           alignItems="center"
-          spacing={24}
+          spacing={6}
         >
           <Grid item xs={12}>
             <Typography className={classes.typography_title} variant="h6">

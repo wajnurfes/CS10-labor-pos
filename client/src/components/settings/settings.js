@@ -122,7 +122,7 @@ class Settings extends Component {
                       mutateJob({ variables: user_variables });
                     }}
                   >
-                    <Grid container spacing={66666}>
+                    <Grid container spacing={6}>
                       <Grid item xs={3} />
                       <Grid item xs={6}>
                         <br />

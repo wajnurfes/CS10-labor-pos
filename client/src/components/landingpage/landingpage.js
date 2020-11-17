@@ -76,7 +76,7 @@ class LandingPage extends Component {
 
   render() {
     const { classes, fullScreen } = this.props;
-    const authToken = {"auth-token": "fakeyfake", "theme_string": "desk", "USER_ID": "1", "USER_PREMIUM": true };
+    const authToken = localStorage.getItem(AUTH_TOKEN);
     //If the user is authenticated, we render the home component instead.
     if (authToken) {
       return (
