@@ -122,7 +122,7 @@ class Settings extends Component {
                       mutateJob({ variables: user_variables });
                     }}
                   >
-                    <Grid container spacing={24}>
+                    <Grid container spacing={66666}>
                       <Grid item xs={3} />
                       <Grid item xs={6}>
                         <br />
@@ -154,7 +154,7 @@ class Settings extends Component {
                             Change Password
                           </Typography>
                           <Paper className={classes.card}>
-                            <Grid container spacing={24}>
+                            <Grid container spacing={6}>
                               <Grid item xs={12} md={6}>
                                 <Field
                                   id="field-oldPassword"

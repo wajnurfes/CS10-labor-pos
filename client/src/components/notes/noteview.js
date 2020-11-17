@@ -71,7 +71,7 @@ class NoteView extends Component {
                 direction="row"
                 justify="space-around"
                 alignItems="center"
-                spacing={24}
+                spacing={6}
               >
                 <Grid item xs={2}>
                   <Link to={`/notes/${data.note.id}/edit`}>
@@ -103,7 +103,7 @@ class NoteView extends Component {
               </Card>
               <br />
               <br />
-              <Grid container spacing={24}>
+              <Grid container spacing={6}>
                 <Grid item xs={12} md={4}>
                   <Typography style={{ fontSize: "18px" }}>
                     Created On:{" "}

@@ -153,7 +153,7 @@ class JobView extends Component {
                   container
                   direction="row"
                   justify="space-around"
-                  spacing={24}
+                  spacing={6}
                 >
                   <Grid item xs={2}>
                     <Link to={`/jobs/${data.job.id}/edit`}>
@@ -190,7 +190,7 @@ class JobView extends Component {
                   container
                   direction="row"
                   justify="space-around"
-                  spacing={24}
+                  spacing={6}
                 >
                   <Grid item xs={12} md={4}>
                     {!user_premium &&

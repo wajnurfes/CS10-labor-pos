@@ -90,7 +90,7 @@ class CardList extends Component {
               justify="center"
               alignItems="center"
               alignContent="center"
-              spacing={24}
+              spacing={6}
             >
               {card_array}
             </Grid>
@@ -120,7 +120,7 @@ class CardList extends Component {
               justify="center"
               alignItems="center"
               alignContent="center"
-              spacing={24}
+              spacing={6}
             >
               {card_array}
             </Grid>
@@ -135,7 +135,7 @@ class CardList extends Component {
         justify="center"
         alignItems="center"
         alignContent="center"
-        spacing={24}
+        spacing={6}
       >
         {card_array}
       </Grid>
