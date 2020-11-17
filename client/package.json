@@ -22,7 +22,7 @@
     "react-scripts": "^4",
     "react-stripe-checkout": "^2.6.3",
     "react-stripe-elements": "^2.0.1",
-    "source-map-explorer": "^1.6.0",
+    "source-map-explorer": "^2",
     "yup": "^0.26.6"
   },
   "scripts": {
