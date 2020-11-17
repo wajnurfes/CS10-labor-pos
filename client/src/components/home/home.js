@@ -138,7 +138,7 @@ class Home extends Component {
           >
             <Avatar
               alt="A golden raccoon logo"
-              src={require("../../racoonbowtie.svg")}
+              src={require("../../racoonbowtie.svg").default}
               className={classes.image}
             />
             <Typography className={classes.typography_menu}>

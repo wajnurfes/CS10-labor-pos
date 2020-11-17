@@ -96,7 +96,7 @@ class LandingPage extends Component {
             <Grid item md={2}>
               <img
                 alt="A golden raccoon logo"
-                src={require("../../racoonbowtie.svg")}
+                src={require("../../racoonbowtie.svg").default}
                 className={classes.image_large}
               />
             </Grid>

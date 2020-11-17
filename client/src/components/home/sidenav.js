@@ -46,7 +46,7 @@ class SideNav extends Component {
           <MenuItem selected={path === '/'} className={classes.nav_menu}>
             <Avatar
               alt='Raccoon with a gold bowtie'
-              src={require('../../racoonbowtie.svg')}
+              src={require('../../racoonbowtie.svg').default}
               className={classes.image}
             />
             <Typography className={classes.typography_menu}>
