@@ -25,7 +25,7 @@ class App extends Component {
 
   render() {
 
-    console.log(React.version);
+    console.log(`React version ${React.version}`);
     
     //  The app will default to a light theme unless the dark_theme variable is set.
 
