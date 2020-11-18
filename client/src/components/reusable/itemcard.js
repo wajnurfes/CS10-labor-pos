@@ -90,14 +90,21 @@ class ItemCard extends Component {
         }
         topRow = (
           <React.Fragment>
-            <span style={{ fontSize: '18px' }}>Job:</span> &nbsp;&nbsp;
-            <span>{`${this.props.item.name}`}</span>
+            <span className={classes.text_color} style={{ fontSize: '18px' }}>
+              Job:
+            </span>{' '}
+            &nbsp;&nbsp;
+            <span
+              className={classes.text_color}
+            >{`${this.props.item.name}`}</span>
           </React.Fragment>
         );
         if (this.props.item.deadline) {
           bottomRow = (
             <React.Fragment>
-              <span style={{ fontSize: '18px' }}>Due:</span>
+              <span className={classes.text_color} style={{ fontSize: '18px' }}>
+                Due:
+              </span>
               &nbsp;&nbsp;
               <span className={classes.highlight}>
                 {this.props.item.deadline}
@@ -124,26 +131,29 @@ class ItemCard extends Component {
         if (this.props.item.jobSet)
           middleRow = (
             <React.Fragment>
-              <span style={{ fontSize: '18px' }}>Jobs:</span>
-              &nbsp;&nbsp;
-              {`${this.props.item.jobSet.edges.length}`}
+              <span className={classes.text_color} style={{ fontSize: '18px' }}>
+                Jobs:&nbsp;&nbsp;
+                {`${this.props.item.jobSet.edges.length}`}
+              </span>
             </React.Fragment>
           );
         if (this.props.item.noteSet)
           bottomRow = (
             <React.Fragment>
-              <span style={{ fontSize: '18px' }}>Notes:</span>
-              &nbsp;&nbsp;
-              {`${this.props.item.noteSet.edges.length}`}
+              <span className={classes.text_color} style={{ fontSize: '18px' }}>
+                Notes: &nbsp;&nbsp;
+                {`${this.props.item.noteSet.edges.length}`}{' '}
+              </span>
             </React.Fragment>
           );
         break;
       case 'note':
         topRow = (
           <React.Fragment>
-            <span style={{ fontSize: '18px' }}>Title:</span>
-            &nbsp;&nbsp;
-            {`${this.props.item.title}`}
+            <span className={classes.text_color} style={{ fontSize: '18px' }}>
+              Title: &nbsp;&nbsp;
+              {`${this.props.item.title}`}
+            </span>
           </React.Fragment>
         );
         if (this.props.item.client) {
@@ -209,9 +219,6 @@ class ItemCard extends Component {
             );
           }
         }
-        break;
-      case 'part':
-        middleRow = this.props.item.name;
         break;
       default:
         break;
