@@ -112,12 +112,12 @@ const styles = (theme) => ({
     maxWidth: '60%',
   },
   list_item_light: {
-    padding: '10px',
+    padding: '4px',
     backgroundColor: theme.palette.lightened_background,
     color: theme.palette.text.secondary,
   },
   list_item_reg: {
-    padding: '10px',
+    padding: '4px',
     backgroundColor: theme.palette.background.paper,
     color: theme.palette.text.primary,
   },
