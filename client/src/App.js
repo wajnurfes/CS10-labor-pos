@@ -105,29 +105,29 @@ class App extends Component {
     });
 
     return (
-      <div className='App'>
-        <div
-          style={{
-            backgroundColor: base_background,
-            width: '100%',
-            height: '100%',
-            minWidth: '100%',
-            minHeight: '100vh',
-            backgroundImage: `url(${background_image})`,
-            backgroundPosition: 'center',
-            backgroundSize: 'cover',
-            backgroundRepeat: 'repeat',
-          }}
-        >
-          <MuiThemeProvider theme={theme}>
-            {/*  We pass the themeControlMethod and dark_theme down all the way to SideNav
+      <div
+        className='App'
+        style={{
+          backgroundColor: base_background,
+          width: '100%',
+          height: '100%',
+          minWidth: '100%',
+          minHeight: '100vh',
+          backgroundImage: `url(${background_image})`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'repeat',
+          padding: '1px',
+        }}
+      >
+        <MuiThemeProvider theme={theme}>
+          {/*  We pass the themeControlMethod and dark_theme down all the way to SideNav
               so that it can communicate with App*/}
-            <LandingPage
-              themeControlMethod={this.handleChange}
-              theme_string={this.state.theme_string}
-            />
-          </MuiThemeProvider>
-        </div>
+          <LandingPage
+            themeControlMethod={this.handleChange}
+            theme_string={this.state.theme_string}
+          />
+        </MuiThemeProvider>
       </div>
     );
   }
