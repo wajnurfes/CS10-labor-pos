@@ -38,6 +38,7 @@ class App extends Component {
     let paper_color = grey['800'];
     let base_background = blueGrey['500'];
     let sidenav_background = grey['800'];
+    let secondary_text = '#ffffff';
     if (this.state.theme_string === 'forest') {
       background_image = false;
       theme_type = 'dark';
@@ -81,6 +82,7 @@ class App extends Component {
       lightened_background = grey['700'];
       sidenav_background = '#191919';
       base_background = '#363636';
+      secondary_text = '#191919';
     }
     //  Create the theme for the app.
 
@@ -97,6 +99,9 @@ class App extends Component {
           default: default_color,
           sidenav: sidenav_background,
           textfield: textfield_color,
+        },
+        text: {
+          secondary: secondary_text,
         },
       },
       typography: {
