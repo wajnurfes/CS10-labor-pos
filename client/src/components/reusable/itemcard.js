@@ -240,7 +240,10 @@ class ItemCard extends Component {
             </IconButton>
           </Grid>
         </Grid>
-        <Link to={`/${this.props.type}s/${this.props.item.id}`}>
+        <Link
+          to={`/${this.props.type}s/${this.props.item.id}`}
+          className={classes.text_color}
+        >
           <Typography variant='subtitle1' noWrap style={{ lineHeight: '2.5' }}>
             {topRow}
           </Typography>
