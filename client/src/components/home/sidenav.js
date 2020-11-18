@@ -32,9 +32,6 @@ class SideNav extends Component {
   };
   render() {
     const { classes } = this.props;
-    let user_premium = localStorage.getItem('USER_PREMIUM');
-    if (user_premium === 'true') user_premium = true;
-    else user_premium = false;
     const path = this.props.location.pathname;
     return (
       <div className={classNames(classes.sidenav, classes.sidenavFull)}>
@@ -96,72 +93,70 @@ class SideNav extends Component {
             </Typography>
           </MenuItem>{' '}
         </Link>
-        <Hidden xsUp={!user_premium}>
-          <ExpansionPanel
-            onChange={this.handleChange}
-            className={classes.sidenav}
+        <ExpansionPanel
+          onChange={this.handleChange}
+          className={classes.sidenav}
+          style={{
+            position: 'unset',
+            boxShadow: 'none',
+          }}
+        >
+          <ExpansionPanelSummary
+            expandIcon={<ExpandMore />}
             style={{
-              position: 'unset',
-              boxShadow: 'none',
+              padding: '0',
+              margin: '0',
             }}
           >
-            <ExpansionPanelSummary
-              expandIcon={<ExpandMore />}
-              style={{
-                padding: '0',
-                margin: '0',
-              }}
-            >
-              <MenuItem style={{ width: '100%' }}>
-                <Typography className={classes.typography_menu}>
-                  Themes
-                </Typography>{' '}
-              </MenuItem>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
-              <FormControl component='fieldset' className={classes.formControl}>
-                <RadioGroup
-                  name='theme'
-                  className={classes.group}
-                  value={this.props.theme_string}
-                  onChange={this.props.themeControlMethod}
-                >
-                  <FormControlLabel
-                    value='desk'
-                    control={<Radio />}
-                    label='Desk'
-                    selected={true}
-                  />
-                  <FormControlLabel
-                    value='forest'
-                    control={<Radio />}
-                    label='Forest'
-                  />
-                  <FormControlLabel
-                    value='ugly'
-                    control={<Radio />}
-                    label='Ugly'
-                  />
-                  <FormControlLabel
-                    value='darkgold'
-                    control={<Radio />}
-                    label='Dark Gold'
-                  />
-                  <FormControlLabel
-                    value='banana'
-                    control={<Radio />}
-                    label='Banana'
-                  />
-                  <FormControlLabel
-                    value='greyscale'
-                    control={<Radio />}
-                    label='Greyscale'
-                  />
-                </RadioGroup>
-              </FormControl>
-            </ExpansionPanelDetails>
-          </ExpansionPanel>
-        </Hidden>
+            <MenuItem style={{ width: '100%' }}>
+              <Typography className={classes.typography_menu}>
+                Themes
+              </Typography>{' '}
+            </MenuItem>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <FormControl component='fieldset' className={classes.formControl}>
+              <RadioGroup
+                name='theme'
+                className={classes.group}
+                value={this.props.theme_string}
+                onChange={this.props.themeControlMethod}
+              >
+                <FormControlLabel
+                  value='desk'
+                  control={<Radio />}
+                  label='Desk'
+                  selected={true}
+                />
+                <FormControlLabel
+                  value='forest'
+                  control={<Radio />}
+                  label='Forest'
+                />
+                <FormControlLabel
+                  value='ugly'
+                  control={<Radio />}
+                  label='Ugly'
+                />
+                <FormControlLabel
+                  value='darkgold'
+                  control={<Radio />}
+                  label='Dark Gold'
+                />
+                <FormControlLabel
+                  value='banana'
+                  control={<Radio />}
+                  label='Banana'
+                />
+                <FormControlLabel
+                  value='greyscale'
+                  control={<Radio />}
+                  label='Greyscale'
+                />
+              </RadioGroup>
+            </FormControl>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
         <MenuItem onClick={this.props.logout} styling={{ position: 'inherit' }}>
           <Typography className={classes.typography_menu}>Logout</Typography>
         </MenuItem>
