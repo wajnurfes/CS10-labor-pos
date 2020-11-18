@@ -93,7 +93,7 @@ class ItemList extends Component {
         <ListItem key={i} dense button className={item_class}>
           <Link to={`${path}/${current_item.id}`}>
             <ListItemText disableTypography>
-              <Typography color='textPrimary'>
+              <Typography className={item_class}>
                 {current_item[name_field]}
               </Typography>
             </ListItemText>
