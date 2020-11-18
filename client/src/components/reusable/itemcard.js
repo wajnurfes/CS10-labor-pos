@@ -65,7 +65,7 @@ class ItemCard extends Component {
       case 'job':
         if (this.props.item.client.businessName) {
           middleRow = (
-            <React.Fragment>
+            <React.Fragment className={classes.text_color}>
               <span className={classes.highlight} style={{ fontSize: '18px' }}>
                 Client:
               </span>
@@ -77,7 +77,7 @@ class ItemCard extends Component {
           );
         } else {
           middleRow = (
-            <React.Fragment>
+            <React.Fragment className={classes.text_color}>
               <span className={classes.highlight} style={{ fontSize: '18px' }}>
                 Client:
               </span>
@@ -89,7 +89,7 @@ class ItemCard extends Component {
           );
         }
         topRow = (
-          <React.Fragment>
+          <React.Fragment className={classes.text_color}>
             <span className={classes.text_color} style={{ fontSize: '18px' }}>
               Job:
             </span>{' '}
@@ -101,7 +101,7 @@ class ItemCard extends Component {
         );
         if (this.props.item.deadline) {
           bottomRow = (
-            <React.Fragment>
+            <React.Fragment className={classes.text_color}>
               <span className={classes.text_color} style={{ fontSize: '18px' }}>
                 Due:
               </span>
@@ -130,7 +130,7 @@ class ItemCard extends Component {
           );
         if (this.props.item.jobSet)
           middleRow = (
-            <React.Fragment>
+            <React.Fragment className={classes.text_color}>
               <span className={classes.text_color} style={{ fontSize: '18px' }}>
                 Jobs:&nbsp;&nbsp;
                 {`${this.props.item.jobSet.edges.length}`}
@@ -139,7 +139,7 @@ class ItemCard extends Component {
           );
         if (this.props.item.noteSet)
           bottomRow = (
-            <React.Fragment>
+            <React.Fragment className={classes.text_color}>
               <span className={classes.text_color} style={{ fontSize: '18px' }}>
                 Notes: &nbsp;&nbsp;
                 {`${this.props.item.noteSet.edges.length}`}{' '}
@@ -149,7 +149,7 @@ class ItemCard extends Component {
         break;
       case 'note':
         topRow = (
-          <React.Fragment>
+          <React.Fragment className={classes.text_color}>
             <span className={classes.text_color} style={{ fontSize: '18px' }}>
               Title: &nbsp;&nbsp;
               {`${this.props.item.title}`}
@@ -159,7 +159,7 @@ class ItemCard extends Component {
         if (this.props.item.client) {
           if (this.props.item.client.businessName) {
             middleRow = (
-              <React.Fragment>
+              <React.Fragment className={classes.text_color}>
                 <span
                   style={{ fontSize: '18px' }}
                   className={classes.highlight}
@@ -174,7 +174,7 @@ class ItemCard extends Component {
             );
           } else {
             middleRow = (
-              <React.Fragment>
+              <React.Fragment className={classes.text_color}>
                 <span
                   style={{ fontSize: '18px' }}
                   className={classes.highlight}
@@ -190,7 +190,7 @@ class ItemCard extends Component {
           }
         } else if (this.props.item.job) {
           middleRow = (
-            <React.Fragment>
+            <React.Fragment className={classes.text_color}>
               <span style={{ fontSize: '18px' }} className={classes.highlight}>
                 Job:
               </span>{' '}
@@ -204,7 +204,7 @@ class ItemCard extends Component {
         if (this.props.item.client) {
           if (this.props.item.job) {
             bottomRow = (
-              <React.Fragment>
+              <React.Fragment className={classes.text_color}>
                 <span
                   style={{ fontSize: '18px' }}
                   className={classes.highlight}
