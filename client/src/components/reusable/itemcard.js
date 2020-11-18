@@ -124,9 +124,10 @@ class ItemCard extends Component {
         if (this.props.item.jobSet)
           middleRow = (
             <React.Fragment>
-              <span style={{ fontSize: '18px' }}>Jobs:</span>
-              &nbsp;&nbsp;
-              {`${this.props.item.jobSet.edges.length}`}
+              <span className={classes.text_color} style={{ fontSize: '18px' }}>
+                Jobs:&nbsp;&nbsp;
+                {`${this.props.item.jobSet.edges.length}`}
+              </span>
             </React.Fragment>
           );
         if (this.props.item.noteSet)
