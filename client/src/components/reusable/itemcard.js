@@ -148,13 +148,13 @@ class ItemCard extends Component {
           );
         break;
       case 'note':
+        console.log('hi!');
         topRow = (
           <React.Fragment>
             <span className={classes.text_color} style={{ fontSize: '18px' }}>
-              Title:
+              Title: &nbsp;&nbsp;
+              {`${this.props.item.title}`}
             </span>
-            &nbsp;&nbsp;
-            {`${this.props.item.title}`}
           </React.Fragment>
         );
         if (this.props.item.client) {
