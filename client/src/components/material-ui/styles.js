@@ -145,7 +145,7 @@ const styles = (theme) => ({
   },
   nav_menu: {
     padding: '20px',
-    height: '60px',
+    height: '80px',
   },
   new_card: {
     backgroundColor: theme.palette.background.paper,
