@@ -82,54 +82,32 @@ class ItemList extends Component {
         path = '/clients';
         break;
     }
-    let user_premium = localStorage.getItem('USER_PREMIUM');
-    if (user_premium === 'true') user_premium = true;
-    else user_premium = false;
+
     let list_items = [];
-    if (user_premium) {
-      for (let i = 0; i < this.props.items.length; i++) {
-        let current_item = this.props.items[i].node;
-        let item_class = classes.list_item_reg;
-        if (i % 2) item_class = classes.list_item_light;
-        list_items.push(
-          <ListItem key={i} dense button className={item_class}>
-            <Link to={`${path}/${current_item.id}`}>
-              <ListItemText>{current_item[name_field]}</ListItemText>
-            </Link>
-            <ListItemSecondaryAction>
-              <IconButton
-                onClick={this.handleDeleteButton(current_item)}
-                aria-label='Delete'
-              >
-                <Delete />
-              </IconButton>
-            </ListItemSecondaryAction>
-          </ListItem>
-        );
-      }
-    } else {
-      // console.log(this.props.items);
-      for (let i = 0; i < this.props.items.length && i < 6; i++) {
-        let current_item = this.props.items[i].node;
-        let item_class = classes.list_item_reg;
-        if (i % 2) item_class = classes.list_item_light;
-        list_items.push(
-          <ListItem key={i} dense button className={item_class}>
-            <ListItemText className={item_class}>
+
+    for (let i = 0; i < this.props.items.length; i++) {
+      let current_item = this.props.items[i].node;
+      let item_class = classes.list_item_reg;
+      if (i % 2) item_class = classes.list_item_light;
+      list_items.push(
+        <ListItem key={i} dense button className={item_class}>
+          <Link to={`${path}/${current_item.id}`}>
+            <ListItemText primaryTypographyProps={{ color: 'textPrimary' }}>
               {current_item[name_field]}
             </ListItemText>
-            <ListItemSecondaryAction>
-              <IconButton
-                onClick={this.handleDeleteButton(current_item)}
-                aria-label='Delete'
-              >
-                <Delete />
-              </IconButton>
-            </ListItemSecondaryAction>
-          </ListItem>
-        );
-      }
+          </Link>
+          <ListItemSecondaryAction>
+            <IconButton
+              onClick={this.handleDeleteButton(current_item)}
+              aria-label='Delete'
+            >
+              <Delete />
+            </IconButton>
+          </ListItemSecondaryAction>
+        </ListItem>
+      );
     }
+
     return (
       <div>
         <Paper>
