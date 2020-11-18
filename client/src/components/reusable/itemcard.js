@@ -241,13 +241,28 @@ class ItemCard extends Component {
           </Grid>
         </Grid>
         <Link to={`/${this.props.type}s/${this.props.item.id}`}>
-          <Typography variant='subtitle1' noWrap style={{ lineHeight: '2.5' }}>
+          <Typography
+            variant='subtitle1'
+            className={classes.text_color}
+            noWrap
+            style={{ lineHeight: '2.5' }}
+          >
             {topRow}
           </Typography>
-          <Typography variant='subtitle1' noWrap style={{ lineHeight: '2.5' }}>
+          <Typography
+            variant='subtitle1'
+            className={classes.text_color}
+            noWrap
+            style={{ lineHeight: '2.5' }}
+          >
             {middleRow}
           </Typography>
-          <Typography variant='subtitle1' noWrap style={{ lineHeight: '2.5' }}>
+          <Typography
+            variant='subtitle1'
+            className={classes.text_color}
+            noWrap
+            style={{ lineHeight: '2.5' }}
+          >
             {bottomRow}
           </Typography>
         </Link>
