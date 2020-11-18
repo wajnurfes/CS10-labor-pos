@@ -49,49 +49,49 @@ class SideNav extends Component {
               src={require('../../racoonbowtie.svg').default}
               className={classes.image}
             />
-            <Typography className={classes.typography_menu}>
+            <Typography color='textPrimary' className={classes.typography_menu}>
               contractAlchemy
             </Typography>
           </MenuItem>{' '}
         </Link>
         <Link to='/clients'>
           <MenuItem>
-            <Typography className={classes.typography_menu}>
+            <Typography color='textPrimary' className={classes.typography_menu}>
               Client List
             </Typography>
           </MenuItem>
         </Link>
         <Link to='/createclient'>
           <MenuItem selected={path.includes('createclient')}>
-            <Typography className={classes.typography_menu}>
+            <Typography color='textPrimary' className={classes.typography_menu}>
               Add Client
             </Typography>
           </MenuItem>{' '}
         </Link>
         <Link to='/jobs'>
           <MenuItem>
-            <Typography className={classes.typography_menu}>
+            <Typography color='textPrimary' className={classes.typography_menu}>
               Job List
             </Typography>
           </MenuItem>{' '}
         </Link>
         <Link to='/notes'>
           <MenuItem>
-            <Typography className={classes.typography_menu}>
+            <Typography color='textPrimary' className={classes.typography_menu}>
               Note List
             </Typography>
           </MenuItem>{' '}
         </Link>
         <Link to='/createnote'>
           <MenuItem selected={path.includes('createnote')}>
-            <Typography className={classes.typography_menu}>
+            <Typography color='textPrimary' className={classes.typography_menu}>
               Add Note
             </Typography>
           </MenuItem>{' '}
         </Link>
         <Link to='/settings'>
           <MenuItem selected={path.includes('settings')}>
-            <Typography className={classes.typography_menu}>
+            <Typography color='textPrimary' className={classes.typography_menu}>
               Settings
             </Typography>
           </MenuItem>{' '}
