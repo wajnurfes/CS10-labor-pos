@@ -115,11 +115,9 @@ class ItemList extends Component {
         if (i % 2) item_class = classes.list_item_light;
         list_items.push(
           <ListItem key={i} dense button className={item_class}>
-            <Link to={`${path}/${current_item.id}`} className={item_class}>
-              <ListItemText className={item_class}>
-                {current_item[name_field]}
-              </ListItemText>
-            </Link>
+            <ListItemText className={item_class}>
+              {current_item[name_field]}
+            </ListItemText>
             <ListItemSecondaryAction>
               <IconButton
                 onClick={this.handleDeleteButton(current_item)}
