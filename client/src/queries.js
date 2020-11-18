@@ -1,4 +1,4 @@
-import gql from "graphql-tag";
+import gql from 'graphql-tag';
 
 const QUERY_ALL_JOBS = gql`
   query {
@@ -372,5 +372,5 @@ export {
   ALL_NOTES_PARTS_JOBS,
   DETAILED_TAG_BY_ID,
   DETAILED_PART_BY_ID,
-  SETTINGS_QUERY
+  SETTINGS_QUERY,
 };

@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router";
-import ClientForm from "./clientform.js";
-import { DETAILED_CLIENT_BY_ID } from "../../queries";
-import { Query } from "react-apollo";
-import { Typography } from "@material-ui/core";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router';
+import ClientForm from './clientform.js';
+import { DETAILED_CLIENT_BY_ID } from '../../queries';
+import { Query } from 'react-apollo';
+import { Typography } from '@material-ui/core';
 
 //  The edit client component renders as a child of home on the path
 //  /client/:id/edit.  It presents the user with a prepopulated form to submit
@@ -23,7 +23,7 @@ class EditClient extends Component {
           if (error) return <Typography>Error! {error.message}</Typography>;
           return (
             <div>
-              <ClientForm mode="edit" client={data.client} refetch={refetch} />
+              <ClientForm mode='edit' client={data.client} refetch={refetch} />
             </div>
           );
         }}

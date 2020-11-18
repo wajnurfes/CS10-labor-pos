@@ -1,4 +1,4 @@
-import gql from "graphql-tag";
+import gql from 'graphql-tag';
 
 const CREATE_USER = gql`
   mutation createUser(
@@ -352,7 +352,6 @@ const DELETE_TAG = gql`
     }
   }
 `;
-
 
 export {
   CREATE_USER,

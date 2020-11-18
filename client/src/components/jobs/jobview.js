@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router";
-import { Link } from "react-router-dom";
-import { Query } from "react-apollo";
-import DoneOutline from "@material-ui/icons/DoneOutline.js";
-import ArrowRightAlt from "@material-ui/icons/ArrowRightAlt.js";
-import Create from "@material-ui/icons/Create.js";
-import Delete from "@material-ui/icons/Delete.js";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
+import { Query } from 'react-apollo';
+import DoneOutline from '@material-ui/icons/DoneOutline.js';
+import ArrowRightAlt from '@material-ui/icons/ArrowRightAlt.js';
+import Create from '@material-ui/icons/Create.js';
+import Delete from '@material-ui/icons/Delete.js';
 import {
   Typography,
   Grid,
@@ -15,13 +15,13 @@ import {
   withStyles,
   Card,
   Paper,
-  withMobileDialog
-} from "@material-ui/core";
-import { ItemList } from "../../components";
-import { DETAILED_JOB_BY_ID } from "../../queries";
-import { styles } from "../material-ui/styles.js";
-import Loadable from "react-loadable";
-import AddCircle from "@material-ui/icons/AddCircle.js";
+  withMobileDialog,
+} from '@material-ui/core';
+import { ItemList } from '../../components';
+import { DETAILED_JOB_BY_ID } from '../../queries';
+import { styles } from '../material-ui/styles.js';
+import Loadable from 'react-loadable';
+import AddCircle from '@material-ui/icons/AddCircle.js';
 
 function Loading({ error }) {
   if (error) {
@@ -32,18 +32,18 @@ function Loading({ error }) {
 }
 
 const NoteForm = Loadable({
-  loader: () => import("../../components/notes/noteform.js"),
-  loading: Loading
+  loader: () => import('../../components/notes/noteform.js'),
+  loading: Loading,
 });
 
 const PartForm = Loadable({
-  loader: () => import("../../components/parts/partform.js"),
-  loading: Loading
+  loader: () => import('../../components/parts/partform.js'),
+  loading: Loading,
 });
 
 const DeleteItem = Loadable({
-  loader: () => import("../../components/reusable/deleteitem.js"),
-  loading: Loading
+  loader: () => import('../../components/reusable/deleteitem.js'),
+  loading: Loading,
 });
 
 //  This component will render as a child of home on the path /jobs/%jobid
@@ -59,23 +59,23 @@ class JobView extends Component {
     this.state = {
       deleting: false,
       add_note: false,
-      add_part: false
+      add_part: false,
     };
   }
 
-  openModal = name => () => {
+  openModal = (name) => () => {
     this.setState({ [name]: true });
   };
 
-  cancelModal = name => () => {
+  cancelModal = (name) => () => {
     this.setState({ [name]: false });
   };
 
   render() {
     // displays job details individually on cards
     const { classes, fullScreen } = this.props;
-    let user_premium = localStorage.getItem("USER_PREMIUM");
-    if (user_premium === "true") user_premium = true;
+    let user_premium = localStorage.getItem('USER_PREMIUM');
+    if (user_premium === 'true') user_premium = true;
     else user_premium = false;
     return (
       <Query
@@ -131,8 +131,9 @@ class JobView extends Component {
             <React.Fragment key={3}>
               <Typography>
                 Created On:&nbsp; &nbsp;
-                {`${created.getMonth() +
-                  1}/${created.getDate()}/${created.getFullYear()}`}
+                {`${
+                  created.getMonth() + 1
+                }/${created.getDate()}/${created.getFullYear()}`}
               </Typography>
               <br />
             </React.Fragment>
@@ -140,19 +141,20 @@ class JobView extends Component {
           right_content.push(
             <Typography key={4}>
               Modified On:&nbsp; &nbsp;
-              {`${modified.getMonth() +
-                1}/${modified.getDate()}/${modified.getFullYear()}`}
+              {`${
+                modified.getMonth() + 1
+              }/${modified.getDate()}/${modified.getFullYear()}`}
             </Typography>
           );
 
           return (
             <div>
               <br />
-              <div className="job-view-top">
+              <div className='job-view-top'>
                 <Grid
                   container
-                  direction="row"
-                  justify="space-around"
+                  direction='row'
+                  justify='space-around'
                   spacing={6}
                 >
                   <Grid item xs={2}>
@@ -164,50 +166,49 @@ class JobView extends Component {
                   </Grid>
                   <Grid item xs={8}>
                     <Typography
-                      variant="h6"
+                      variant='h6'
                       className={classes.typography_title}
                     >
                       {data.job.name}
                     </Typography>
                   </Grid>
                   <Grid item xs={2}>
-                    <IconButton onClick={this.openModal("deleting")}>
+                    <IconButton onClick={this.openModal('deleting')}>
                       <Delete />
                     </IconButton>
                   </Grid>
                 </Grid>
               </div>
               <br />
-              <Card style={{ width: "90%", height: "40vh", margin: "auto" }}>
+              <Card style={{ width: '90%', height: '40vh', margin: 'auto' }}>
                 <Typography paragraph className={classes.note}>
                   {data.job.description}
                 </Typography>
               </Card>
               <br />
               <br />
-              <div className="job-view-lists">
+              <div className='job-view-lists'>
                 <Grid
                   container
-                  direction="row"
-                  justify="space-around"
+                  direction='row'
+                  justify='space-around'
                   spacing={6}
                 >
                   <Grid item xs={12} md={4}>
-                    {!user_premium &&
-                      data.job.noteSet.edges.length < 6 && (
-                        <Button
-                          onClick={this.openModal("add_note")}
-                          className={classes.add_button}
-                        >
-                          <AddCircle /> &nbsp;&nbsp;
-                          <Typography className={classes.add_text}>
-                            New note
-                          </Typography>
-                        </Button>
-                      )}
+                    {!user_premium && data.job.noteSet.edges.length < 6 && (
+                      <Button
+                        onClick={this.openModal('add_note')}
+                        className={classes.add_button}
+                      >
+                        <AddCircle /> &nbsp;&nbsp;
+                        <Typography className={classes.add_text}>
+                          New note
+                        </Typography>
+                      </Button>
+                    )}
                     {user_premium && (
                       <Button
-                        onClick={this.openModal("add_note")}
+                        onClick={this.openModal('add_note')}
                         className={classes.add_button}
                       >
                         <AddCircle /> &nbsp;&nbsp;
@@ -217,28 +218,27 @@ class JobView extends Component {
                       </Button>
                     )}
                     <ItemList
-                      type="note"
+                      type='note'
                       items={data.job.noteSet.edges}
                       refetch={refetch}
                     />
                   </Grid>
                   <Grid item xs={12} md={4}>
-                    {!user_premium &&
-                      data.job.partSet.edges.length < 6 && (
-                        <Button
-                          className={classes.add_button}
-                          onClick={this.openModal("add_part")}
-                        >
-                          <AddCircle /> &nbsp;&nbsp;
-                          <Typography className={classes.add_text}>
-                            New part
-                          </Typography>
-                        </Button>
-                      )}
+                    {!user_premium && data.job.partSet.edges.length < 6 && (
+                      <Button
+                        className={classes.add_button}
+                        onClick={this.openModal('add_part')}
+                      >
+                        <AddCircle /> &nbsp;&nbsp;
+                        <Typography className={classes.add_text}>
+                          New part
+                        </Typography>
+                      </Button>
+                    )}
                     {user_premium && (
                       <Button
                         className={classes.add_button}
-                        onClick={this.openModal("add_part")}
+                        onClick={this.openModal('add_part')}
                       >
                         <AddCircle /> &nbsp;&nbsp;
                         <Typography className={classes.add_text}>
@@ -248,7 +248,7 @@ class JobView extends Component {
                     )}
 
                     <ItemList
-                      type="part"
+                      type='part'
                       items={data.job.partSet.edges}
                       refetch={refetch}
                     />
@@ -258,8 +258,8 @@ class JobView extends Component {
                     <Card className={classes.card}>{right_content}</Card>
                     <Link to={`/jobs/${data.job.id}/invoice`}>
                       <Button
-                        variant="contained"
-                        color="primary"
+                        variant='contained'
+                        color='primary'
                         className={classes.padded_button}
                       >
                         Invoice
@@ -270,43 +270,43 @@ class JobView extends Component {
               </div>
               <Dialog
                 open={this.state.deleting}
-                onClose={this.cancelModal("deleting")}
-                className="delete-modal"
+                onClose={this.cancelModal('deleting')}
+                className='delete-modal'
                 fullScreen={fullScreen}
               >
                 <DeleteItem
-                  cancelDelete={this.cancelModal("deleting")}
-                  type="job"
+                  cancelDelete={this.cancelModal('deleting')}
+                  type='job'
                   item={data.job}
-                  after_path="/jobs"
+                  after_path='/jobs'
                 />
               </Dialog>
               <Dialog
                 open={this.state.add_note}
-                onClose={this.cancelModal("add_note")}
+                onClose={this.cancelModal('add_note')}
                 fullScreen={fullScreen}
               >
                 <Paper className={classes.paper}>
                   <NoteForm
-                    mode="modal"
-                    parent={{ type: "job", id: data.job.id }}
+                    mode='modal'
+                    parent={{ type: 'job', id: data.job.id }}
                     after_path={this.props.location.pathname}
-                    cancelAdd={this.cancelModal("add_note")}
+                    cancelAdd={this.cancelModal('add_note')}
                     refetch={refetch}
                   />
                 </Paper>
               </Dialog>
               <Dialog
                 open={this.state.add_part}
-                onClose={this.cancelModal("add_part")}
+                onClose={this.cancelModal('add_part')}
                 fullScreen={fullScreen}
               >
                 <Paper className={classes.paper}>
                   <PartForm
-                    mode="modal"
-                    parent={{ type: "job", id: data.job.id }}
+                    mode='modal'
+                    parent={{ type: 'job', id: data.job.id }}
                     after_path={this.props.location.pathname}
-                    cancelAdd={this.cancelModal("add_part")}
+                    cancelAdd={this.cancelModal('add_part')}
                     refetch={refetch}
                   />
                 </Paper>

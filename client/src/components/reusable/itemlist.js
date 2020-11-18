@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router";
-import Delete from "@material-ui/icons/Delete.js";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router';
+import Delete from '@material-ui/icons/Delete.js';
 import {
   Paper,
   List,
@@ -10,11 +10,11 @@ import {
   IconButton,
   Dialog,
   Typography,
-  withStyles
-} from "@material-ui/core";
-import { Link } from "react-router-dom";
-import { styles } from "../material-ui/styles.js";
-import Loadable from "react-loadable";
+  withStyles,
+} from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import { styles } from '../material-ui/styles.js';
+import Loadable from 'react-loadable';
 
 function Loading({ error }) {
   if (error) {
@@ -25,8 +25,8 @@ function Loading({ error }) {
 }
 
 const DeleteItem = Loadable({
-  loader: () => import("../../components/reusable/deleteitem.js"),
-  loading: Loading
+  loader: () => import('../../components/reusable/deleteitem.js'),
+  loading: Loading,
 });
 
 //  This component shows a small, paginated list of items with add and delete options
@@ -45,11 +45,11 @@ class ItemList extends Component {
     super();
     this.state = {
       deleting: false,
-      delete_item: null
+      delete_item: null,
     };
   }
 
-  handleDeleteButton = item => event => {
+  handleDeleteButton = (item) => (event) => {
     event.preventDefault();
     this.setState({ delete_item: item }, () => {
       this.setState({ deleting: true });
@@ -62,28 +62,28 @@ class ItemList extends Component {
 
   render() {
     const { classes } = this.props;
-    let name_field = "";
-    let path = "";
+    let name_field = '';
+    let path = '';
     switch (this.props.type) {
-      case "job":
-        name_field = "name";
-        path = "/jobs";
+      case 'job':
+        name_field = 'name';
+        path = '/jobs';
         break;
-      case "part":
-        name_field = "name";
-        path = "/parts";
+      case 'part':
+        name_field = 'name';
+        path = '/parts';
         break;
-      case "note":
-        name_field = "title";
-        path = "/notes";
+      case 'note':
+        name_field = 'title';
+        path = '/notes';
         break;
       default:
-        name_field = "first_name last_name";
-        path = "/clients";
+        name_field = 'first_name last_name';
+        path = '/clients';
         break;
     }
-    let user_premium = localStorage.getItem("USER_PREMIUM");
-    if (user_premium === "true") user_premium = true;
+    let user_premium = localStorage.getItem('USER_PREMIUM');
+    if (user_premium === 'true') user_premium = true;
     else user_premium = false;
     let list_items = [];
     if (user_premium) {
@@ -99,7 +99,7 @@ class ItemList extends Component {
             <ListItemSecondaryAction>
               <IconButton
                 onClick={this.handleDeleteButton(current_item)}
-                aria-label="Delete"
+                aria-label='Delete'
               >
                 <Delete />
               </IconButton>
@@ -121,7 +121,7 @@ class ItemList extends Component {
             <ListItemSecondaryAction>
               <IconButton
                 onClick={this.handleDeleteButton(current_item)}
-                aria-label="Delete"
+                aria-label='Delete'
               >
                 <Delete />
               </IconButton>
@@ -139,7 +139,7 @@ class ItemList extends Component {
         <Dialog
           open={this.state.deleting}
           onClose={this.cancelDelete}
-          className="delete-modal"
+          className='delete-modal'
         >
           <DeleteItem
             cancelDelete={this.cancelDelete}

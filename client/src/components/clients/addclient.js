@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router";
-import ClientForm from "./clientform.js";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router';
+import ClientForm from './clientform.js';
 
 //  The add client component renders as a child of home on the path
 //  /client/create.  It presents the user with a form to submit
@@ -11,7 +11,7 @@ class AddClient extends Component {
   render() {
     return (
       <div>
-        <ClientForm mode="create" />
+        <ClientForm mode='create' />
       </div>
     );
   }

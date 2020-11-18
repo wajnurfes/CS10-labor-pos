@@ -1,16 +1,16 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
 import {
   Button,
   Grid,
   Card,
   withStyles,
   Typography,
-  Tooltip
-} from "@material-ui/core";
-import { styles } from "../material-ui/styles.js";
-import Help from "@material-ui/icons/Help.js";
+  Tooltip,
+} from '@material-ui/core';
+import { styles } from '../material-ui/styles.js';
+import Help from '@material-ui/icons/Help.js';
 
 //The start component renders at the root route when the user is logged in
 //It is intended to offer a selection of the most likely tasks the user
@@ -26,20 +26,20 @@ class Start extends Component {
         <br />
         <Grid
           container
-          direction="row"
-          justify="space-around"
-          alignItems="center"
+          direction='row'
+          justify='space-around'
+          alignItems='center'
           spacing={6}
         >
           <Grid item xs={12}>
-            <Typography className={classes.typography_title} variant="h6">
+            <Typography className={classes.typography_title} variant='h6'>
               Home
             </Typography>
             <br />
           </Grid>
-          <Grid container direction="row" justify="center" alignItems="center">
+          <Grid container direction='row' justify='center' alignItems='center'>
             <Grid item xs>
-              <Link to="/clients">
+              <Link to='/clients'>
                 <Button>
                   <Card className={classes.start_card}>
                     <Grid item xs={9} />
@@ -53,7 +53,7 @@ class Start extends Component {
                     <Grid item xs={12}>
                       <Typography
                         className={classes.typography_start}
-                        variant="h6"
+                        variant='h6'
                       >
                         View <br /> Clients
                       </Typography>
@@ -61,10 +61,10 @@ class Start extends Component {
                     <Grid item xs={12} />
                   </Card>
                 </Button>
-              </Link>{" "}
+              </Link>{' '}
             </Grid>
             <Grid item xs>
-              <Link to="/jobs">
+              <Link to='/jobs'>
                 <Button>
                   <Card className={classes.start_card}>
                     <Grid item xs={9} />
@@ -78,7 +78,7 @@ class Start extends Component {
                     <Grid item xs={12}>
                       <Typography
                         className={classes.typography_start}
-                        variant="h6"
+                        variant='h6'
                       >
                         View <br /> Jobs
                       </Typography>
@@ -86,22 +86,22 @@ class Start extends Component {
                     <Grid item xs={12} />
                   </Card>
                 </Button>
-              </Link>{" "}
+              </Link>{' '}
             </Grid>
             <Grid item xs>
-              <Link to="/notes">
+              <Link to='/notes'>
                 <Button>
                   <Card className={classes.start_card}>
                     <Grid item xs={9} />
                     <Grid item xs={3}>
-                      <Tooltip title="Notes can be made attached to a client, a job, or be unattached to anything, giving you the flexibility to keep track of all of your projects.">
+                      <Tooltip title='Notes can be made attached to a client, a job, or be unattached to anything, giving you the flexibility to keep track of all of your projects.'>
                         <Help />
                       </Tooltip>
                     </Grid>
                     <Grid item xs={12}>
                       <Typography
                         className={classes.typography_start}
-                        variant="h6"
+                        variant='h6'
                       >
                         View <br /> Notes
                       </Typography>
@@ -109,7 +109,7 @@ class Start extends Component {
                     <Grid item xs={12} />
                   </Card>
                 </Button>
-              </Link>{" "}
+              </Link>{' '}
             </Grid>
           </Grid>
         </Grid>

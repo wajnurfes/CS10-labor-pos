@@ -1,17 +1,17 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router";
-import { Link } from "react-router-dom";
-import Create from "@material-ui/icons/Create.js";
-import Delete from "@material-ui/icons/Delete.js";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
+import Create from '@material-ui/icons/Create.js';
+import Delete from '@material-ui/icons/Delete.js';
 import {
   IconButton,
   Typography,
   Dialog,
   Grid,
-  withStyles
-} from "@material-ui/core";
-import Loadable from "react-loadable";
-import { styles } from "../material-ui/styles.js";
+  withStyles,
+} from '@material-ui/core';
+import Loadable from 'react-loadable';
+import { styles } from '../material-ui/styles.js';
 
 function Loading({ error }) {
   if (error) {
@@ -22,8 +22,8 @@ function Loading({ error }) {
 }
 
 const DeleteItem = Loadable({
-  loader: () => import("../../components/reusable/deleteitem.js"),
-  loading: Loading
+  loader: () => import('../../components/reusable/deleteitem.js'),
+  loading: Loading,
 });
 //  This component will render as a child of the card list component.
 //  It presents a small area of preview information for an individual item.
@@ -38,7 +38,7 @@ class ItemCard extends Component {
   constructor() {
     super();
     this.state = {
-      deleting: false
+      deleting: false,
     };
   }
 
@@ -52,9 +52,9 @@ class ItemCard extends Component {
 
   render() {
     const { classes } = this.props;
-    let topRow = "";
-    let middleRow = "";
-    let bottomRow = "";
+    let topRow = '';
+    let middleRow = '';
+    let bottomRow = '';
 
     /*  No longer using this.props.type being passed down from Cardlist
     That logic was breaking when it came to going to /client because
@@ -62,42 +62,42 @@ class ItemCard extends Component {
     Now taking this.props.match.path off of React router */
 
     switch (this.props.type) {
-      case "job":
+      case 'job':
         if (this.props.item.client.businessName) {
           middleRow = (
             <React.Fragment>
-              <span className={classes.highlight} style={{ fontSize: "18px" }}>
+              <span className={classes.highlight} style={{ fontSize: '18px' }}>
                 Client:
               </span>
               &nbsp;&nbsp;
               <span className={classes.highlight}>
-                {`${this.props.item.client.businessName}`}{" "}
+                {`${this.props.item.client.businessName}`}{' '}
               </span>
             </React.Fragment>
           );
         } else {
           middleRow = (
             <React.Fragment>
-              <span className={classes.highlight} style={{ fontSize: "18px" }}>
+              <span className={classes.highlight} style={{ fontSize: '18px' }}>
                 Client:
               </span>
               &nbsp;&nbsp;
-              <span className={classes.highlight}>{`${
-                this.props.item.client.firstName
-              } ${this.props.item.client.lastName}`}</span>
+              <span
+                className={classes.highlight}
+              >{`${this.props.item.client.firstName} ${this.props.item.client.lastName}`}</span>
             </React.Fragment>
           );
         }
         topRow = (
           <React.Fragment>
-            <span style={{ fontSize: "18px" }}>Job:</span> &nbsp;&nbsp;
+            <span style={{ fontSize: '18px' }}>Job:</span> &nbsp;&nbsp;
             <span>{`${this.props.item.name}`}</span>
           </React.Fragment>
         );
         if (this.props.item.deadline) {
           bottomRow = (
             <React.Fragment>
-              <span style={{ fontSize: "18px" }}>Due:</span>
+              <span style={{ fontSize: '18px' }}>Due:</span>
               &nbsp;&nbsp;
               <span className={classes.highlight}>
                 {this.props.item.deadline}
@@ -105,26 +105,26 @@ class ItemCard extends Component {
             </React.Fragment>
           );
         } else {
-          bottomRow = "No deadline";
+          bottomRow = 'No deadline';
         }
         break;
-      case "client":
+      case 'client':
         if (this.props.item.businessName)
           topRow = (
-            <span className={classes.highlight} style={{ fontSize: "18px" }}>
+            <span className={classes.highlight} style={{ fontSize: '18px' }}>
               {this.props.item.businessName}
             </span>
           );
         else
           topRow = (
-            <span className={classes.highlight} style={{ fontSize: "18px" }}>
+            <span className={classes.highlight} style={{ fontSize: '18px' }}>
               {this.props.item.firstName} {this.props.item.lastName}
             </span>
           );
         if (this.props.item.jobSet)
           middleRow = (
             <React.Fragment>
-              <span style={{ fontSize: "18px" }}>Jobs:</span>
+              <span style={{ fontSize: '18px' }}>Jobs:</span>
               &nbsp;&nbsp;
               {`${this.props.item.jobSet.edges.length}`}
             </React.Fragment>
@@ -132,16 +132,16 @@ class ItemCard extends Component {
         if (this.props.item.noteSet)
           bottomRow = (
             <React.Fragment>
-              <span style={{ fontSize: "18px" }}>Notes:</span>
+              <span style={{ fontSize: '18px' }}>Notes:</span>
               &nbsp;&nbsp;
               {`${this.props.item.noteSet.edges.length}`}
             </React.Fragment>
           );
         break;
-      case "note":
+      case 'note':
         topRow = (
           <React.Fragment>
-            <span style={{ fontSize: "18px" }}>Title:</span>
+            <span style={{ fontSize: '18px' }}>Title:</span>
             &nbsp;&nbsp;
             {`${this.props.item.title}`}
           </React.Fragment>
@@ -151,7 +151,7 @@ class ItemCard extends Component {
             middleRow = (
               <React.Fragment>
                 <span
-                  style={{ fontSize: "18px" }}
+                  style={{ fontSize: '18px' }}
                   className={classes.highlight}
                 >
                   Client:
@@ -166,13 +166,13 @@ class ItemCard extends Component {
             middleRow = (
               <React.Fragment>
                 <span
-                  style={{ fontSize: "18px" }}
+                  style={{ fontSize: '18px' }}
                   className={classes.highlight}
                 >
                   Client:&nbsp;&nbsp;
-                </span>{" "}
+                </span>{' '}
                 <span className={classes.highlight}>
-                  {this.props.item.client.firstName}{" "}
+                  {this.props.item.client.firstName}{' '}
                   {this.props.item.client.lastName}
                 </span>
               </React.Fragment>
@@ -181,9 +181,9 @@ class ItemCard extends Component {
         } else if (this.props.item.job) {
           middleRow = (
             <React.Fragment>
-              <span style={{ fontSize: "18px" }} className={classes.highlight}>
+              <span style={{ fontSize: '18px' }} className={classes.highlight}>
                 Job:
-              </span>{" "}
+              </span>{' '}
               &nbsp;&nbsp;
               <span className={classes.highlight}>
                 {this.props.item.job.name}
@@ -196,11 +196,11 @@ class ItemCard extends Component {
             bottomRow = (
               <React.Fragment>
                 <span
-                  style={{ fontSize: "18px" }}
+                  style={{ fontSize: '18px' }}
                   className={classes.highlight}
                 >
                   Job:
-                </span>{" "}
+                </span>{' '}
                 &nbsp;&nbsp;
                 <span className={classes.highlight}>
                   {this.props.item.job.name}
@@ -210,7 +210,7 @@ class ItemCard extends Component {
           }
         }
         break;
-      case "part":
+      case 'part':
         middleRow = this.props.item.name;
         break;
       default:
@@ -234,20 +234,20 @@ class ItemCard extends Component {
           </Grid>
         </Grid>
         <Link to={`/${this.props.type}s/${this.props.item.id}`}>
-          <Typography variant="subtitle1" noWrap style={{ lineHeight: "2.5" }}>
+          <Typography variant='subtitle1' noWrap style={{ lineHeight: '2.5' }}>
             {topRow}
           </Typography>
-          <Typography variant="subtitle1" noWrap style={{ lineHeight: "2.5" }}>
+          <Typography variant='subtitle1' noWrap style={{ lineHeight: '2.5' }}>
             {middleRow}
           </Typography>
-          <Typography variant="subtitle1" noWrap style={{ lineHeight: "2.5" }}>
+          <Typography variant='subtitle1' noWrap style={{ lineHeight: '2.5' }}>
             {bottomRow}
           </Typography>
         </Link>
         <Dialog
           open={this.state.deleting}
           onClose={this.cancelDelete}
-          className="delete-modal"
+          className='delete-modal'
         >
           <DeleteItem
             cancelDelete={this.cancelDelete}

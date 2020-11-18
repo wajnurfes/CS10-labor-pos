@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router";
-import NoteForm from "./noteform.js";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router';
+import NoteForm from './noteform.js';
 
 //  This component will render as a child of home on the
 //  /notes/create route when the user is logged in.
@@ -11,7 +11,7 @@ class AddNote extends Component {
   render() {
     return (
       <div>
-        <NoteForm mode="create" after_url="/notes" />
+        <NoteForm mode='create' after_url='/notes' />
       </div>
     );
   }

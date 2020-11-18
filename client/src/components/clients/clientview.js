@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router";
-import { Link } from "react-router-dom";
-import { Query } from "react-apollo";
-import Create from "@material-ui/icons/Create.js";
-import Delete from "@material-ui/icons/Delete.js";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
+import { Query } from 'react-apollo';
+import Create from '@material-ui/icons/Create.js';
+import Delete from '@material-ui/icons/Delete.js';
 import {
   Typography,
   Grid,
@@ -15,15 +15,15 @@ import {
   Paper,
   Button,
   Tabs,
-  Tab
-} from "@material-ui/core";
-import { CardList } from "../../components";
-import { DETAILED_CLIENT_BY_ID } from "../../queries";
-import { styles } from "../material-ui/styles.js";
-import Loadable from "react-loadable";
-import AddCircle from "@material-ui/icons/AddCircle.js";
-import Work from "@material-ui/icons/Work.js";
-import NoteAdd from "@material-ui/icons/NoteAdd.js";
+  Tab,
+} from '@material-ui/core';
+import { CardList } from '../../components';
+import { DETAILED_CLIENT_BY_ID } from '../../queries';
+import { styles } from '../material-ui/styles.js';
+import Loadable from 'react-loadable';
+import AddCircle from '@material-ui/icons/AddCircle.js';
+import Work from '@material-ui/icons/Work.js';
+import NoteAdd from '@material-ui/icons/NoteAdd.js';
 
 function Loading({ error }) {
   if (error) {
@@ -34,23 +34,23 @@ function Loading({ error }) {
 }
 // brings in ability to create notes and jobs from within the client
 const NoteForm = Loadable({
-  loader: () => import("../../components/notes/noteform.js"),
-  loading: Loading
+  loader: () => import('../../components/notes/noteform.js'),
+  loading: Loading,
 });
 
 const JobForm = Loadable({
-  loader: () => import("../../components/jobs/jobform.js"),
-  loading: Loading
+  loader: () => import('../../components/jobs/jobform.js'),
+  loading: Loading,
 });
 
 const DeleteItem = Loadable({
-  loader: () => import("../../components/reusable/deleteitem.js"),
-  loading: Loading
+  loader: () => import('../../components/reusable/deleteitem.js'),
+  loading: Loading,
 });
 
 function TabContainer(props) {
   return (
-    <Typography component="div" style={{ padding: 8 * 3 }}>
+    <Typography component='div' style={{ padding: 8 * 3 }}>
       {props.children}
     </Typography>
   );
@@ -70,7 +70,7 @@ class ClientView extends Component {
       add_job: false,
       add_note: false,
       job: true,
-      value: 0
+      value: 0,
     };
   }
 
@@ -78,11 +78,11 @@ class ClientView extends Component {
     this.setState({ value });
   };
 
-  openModal = name => () => {
+  openModal = (name) => () => {
     this.setState({ [name]: true });
   };
 
-  cancelModal = name => () => {
+  cancelModal = (name) => () => {
     this.setState({ [name]: false });
   };
 
@@ -94,7 +94,7 @@ class ClientView extends Component {
       <Query
         query={DETAILED_CLIENT_BY_ID}
         variables={{ id: this.props.match.params.id }}
-        fetchPolicy="network-only"
+        fetchPolicy='network-only'
       >
         {({ loading, error, data, refetch }) => {
           if (loading) return <Typography>Loading...</Typography>;
@@ -106,8 +106,8 @@ class ClientView extends Component {
           for (let i = 0; i < job_items.length; i++) {
             job_items[i].node.client = { businessName: name };
           }
-          let user_premium = localStorage.getItem("USER_PREMIUM");
-          if (user_premium === "true") user_premium = true;
+          let user_premium = localStorage.getItem('USER_PREMIUM');
+          if (user_premium === 'true') user_premium = true;
           else user_premium = false;
           return (
             <div>
@@ -121,12 +121,12 @@ class ClientView extends Component {
                     </Link>
                   </Grid>
                   <Grid item xs={10}>
-                    <Typography className={classes.typography} variant="h6">
+                    <Typography className={classes.typography} variant='h6'>
                       <span className={classes.highlight}>{name}</span>
                     </Typography>
                   </Grid>
                   <Grid item xs={1}>
-                    <IconButton onClick={this.openModal("deleting")}>
+                    <IconButton onClick={this.openModal('deleting')}>
                       <Delete />
                     </IconButton>
                   </Grid>
@@ -139,18 +139,18 @@ class ClientView extends Component {
                 <Grid container>
                   <Grid item xs={12} md={6}>
                     <Typography
-                      align="left"
-                      variant="subtitle1"
+                      align='left'
+                      variant='subtitle1'
                       className={classes.space_above}
                     >
-                      <b>Business Name:</b> &nbsp; &nbsp;{" "}
+                      <b>Business Name:</b> &nbsp; &nbsp;{' '}
                       {data.client.businessName}
                     </Typography>
                   </Grid>
                   <Grid item xs={12} md={6}>
                     <Typography
-                      align="left"
-                      variant="subtitle1"
+                      align='left'
+                      variant='subtitle1'
                       className={classes.space_above}
                     >
                       <b>Street Address:</b> &nbsp; &nbsp;
@@ -159,18 +159,18 @@ class ClientView extends Component {
                   </Grid>
                   <Grid item xs={12} md={6}>
                     <Typography
-                      align="left"
-                      variant="subtitle1"
+                      align='left'
+                      variant='subtitle1'
                       className={classes.space_above}
                     >
-                      <b>Name:</b> &nbsp; &nbsp;{" "}
+                      <b>Name:</b> &nbsp; &nbsp;{' '}
                       {`${data.client.firstName} ${data.client.lastName}`}
                     </Typography>
                   </Grid>
                   <Grid item xs={12} md={2}>
                     <Typography
-                      align="left"
-                      variant="subtitle1"
+                      align='left'
+                      variant='subtitle1'
                       className={classes.space_above}
                     >
                       <b>City:</b> &nbsp; &nbsp;
@@ -179,8 +179,8 @@ class ClientView extends Component {
                   </Grid>
                   <Grid item xs={12} md={2}>
                     <Typography
-                      align="left"
-                      variant="subtitle1"
+                      align='left'
+                      variant='subtitle1'
                       className={classes.space_above}
                     >
                       <b>State:</b> &nbsp; &nbsp; {data.client.state}
@@ -188,8 +188,8 @@ class ClientView extends Component {
                   </Grid>
                   <Grid item xs={12} md={2}>
                     <Typography
-                      align="left"
-                      variant="subtitle1"
+                      align='left'
+                      variant='subtitle1'
                       className={classes.space_above}
                     >
                       <b>Zip:</b> &nbsp; &nbsp; {data.client.zipcode}
@@ -201,8 +201,8 @@ class ClientView extends Component {
               <Tabs
                 value={this.state.value}
                 onChange={this.handleChange}
-                indicatorColor="secondary"
-                textColor="secondary"
+                indicatorColor='secondary'
+                textColor='secondary'
               >
                 <Tab icon={<Work />} value={0} label={`Jobs for ${name}`} />
                 <Tab icon={<NoteAdd />} value={1} label={`Notes for ${name}`} />
@@ -211,15 +211,15 @@ class ClientView extends Component {
                 <TabContainer>
                   <Typography
                     className={classes.typography}
-                    align="left"
-                    variant="subtitle1"
+                    align='left'
+                    variant='subtitle1'
                     paragraph
                   >
                     {user_premium && (
                       <Button
-                        onClick={this.openModal("add_job")}
+                        onClick={this.openModal('add_job')}
                         className={classes.add_button}
-                        variant="contained"
+                        variant='contained'
                       >
                         <AddCircle /> &nbsp;&nbsp;
                         <Typography className={classes.add_text}>
@@ -227,29 +227,28 @@ class ClientView extends Component {
                         </Typography>
                       </Button>
                     )}
-                    {!user_premium &&
-                      job_items.length < 6 && (
-                        <Button
-                          onClick={this.openModal("add_job")}
-                          className={classes.add_button}
-                          variant="contained"
-                        >
-                          <AddCircle />
-                          &nbsp;&nbsp;
-                          <Typography>New Job</Typography>
-                        </Button>
-                      )}
+                    {!user_premium && job_items.length < 6 && (
+                      <Button
+                        onClick={this.openModal('add_job')}
+                        className={classes.add_button}
+                        variant='contained'
+                      >
+                        <AddCircle />
+                        &nbsp;&nbsp;
+                        <Typography>New Job</Typography>
+                      </Button>
+                    )}
                     Jobs for <span className={classes.highlight}>{name}</span>
                   </Typography>
                   <CardList
                     columns={3}
-                    type="job"
+                    type='job'
                     items={job_items}
-                    createMethod={this.openModal("add_job")}
-                    cancelCreateMethod={this.cancelModal("add_job")}
+                    createMethod={this.openModal('add_job')}
+                    cancelCreateMethod={this.cancelModal('add_job')}
                     after_path={this.props.location.pathname}
                     refetch={refetch}
-                  />{" "}
+                  />{' '}
                 </TabContainer>
               )}
               {value === 1 && (
@@ -257,14 +256,14 @@ class ClientView extends Component {
                   <Typography
                     className={classes.typography}
                     paragraph
-                    align="left"
-                    variant="subtitle1"
+                    align='left'
+                    variant='subtitle1'
                   >
                     {user_premium && (
                       <Button
-                        onClick={this.openModal("add_note")}
+                        onClick={this.openModal('add_note')}
                         className={classes.add_button}
-                        variant="contained"
+                        variant='contained'
                       >
                         <AddCircle /> &nbsp;&nbsp;
                         <Typography className={classes.add_text}>
@@ -272,67 +271,66 @@ class ClientView extends Component {
                         </Typography>
                       </Button>
                     )}
-                    {!user_premium &&
-                      data.client.noteSet.edges.length < 6 && (
-                        <Button
-                          onClick={this.openModal("add_note")}
-                          className={classes.add_button}
-                          variant="contained"
-                        >
-                          <AddCircle />
-                          <Typography>New Note</Typography>
-                        </Button>
-                      )}
+                    {!user_premium && data.client.noteSet.edges.length < 6 && (
+                      <Button
+                        onClick={this.openModal('add_note')}
+                        className={classes.add_button}
+                        variant='contained'
+                      >
+                        <AddCircle />
+                        <Typography>New Note</Typography>
+                      </Button>
+                    )}
                     Notes for <span className={classes.highlight}>{name}</span>
                   </Typography>
                   <CardList
                     rows={1}
                     columns={3}
-                    type="note"
+                    type='note'
                     items={data.client.noteSet.edges}
-                    cancelCreateMethod={this.cancelModal("add_note")}
+                    cancelCreateMethod={this.cancelModal('add_note')}
                     refetch={refetch}
                   />
                 </TabContainer>
               )}
               <Dialog
                 open={this.state.deleting}
-                onClose={this.cancelModal("deleting")}
+                onClose={this.cancelModal('deleting')}
                 fullScreen={fullScreen}
               >
                 <DeleteItem
-                  cancelDelete={this.cancelModal("deleting")}
-                  type="client"
+                  cancelDelete={this.cancelModal('deleting')}
+                  type='client'
                   item={data.client}
-                  after_path="/clients"
+                  after_path='/clients'
                 />
               </Dialog>
               <Dialog
                 open={this.state.add_job}
-                onClose={this.cancelModal("add_job")}
+                onClose={this.cancelModal('add_job')}
                 fullScreen={fullScreen}
               >
                 <Paper className={classes.paper}>
                   <JobForm
-                    mode="create"
-                    parent={{ type: "client", id: data.client.id }}
+                    mode='create'
+                    parent={{ type: 'client', id: data.client.id }}
                     after_path={this.props.location.pathname}
-                    cancelAdd={this.cancelModal("add_job")}
+                    cancelAdd={this.cancelModal('add_job')}
                     refetch={refetch}
                   />
                 </Paper>
               </Dialog>
               <Dialog
                 open={this.state.add_note}
-                onClose={this.cancelModal("add_note")}
+                onClose={this.cancelModal('add_note')}
                 fullScreen={fullScreen}
               >
                 <Paper className={classes.paper}>
                   <NoteForm
-                    mode="modal"
-                    parent={{ type: "client", id: data.client.id }}
+                    mode='modal'
+                    parent={{ type: 'client', id: data.client.id }}
                     after_path={this.props.location.pathname}
-                    cancelAdd={this.cancelModal("add_note")}
+                    cancelAdd={this.cancelModal('add_note')}
                     refetch={refetch}
                   />
                 </Paper>

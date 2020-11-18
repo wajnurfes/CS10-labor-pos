@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router";
-import { Query } from "react-apollo";
-import { DETAILED_NOTE_BY_ID } from "../../queries";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router';
+import { Query } from 'react-apollo';
+import { DETAILED_NOTE_BY_ID } from '../../queries';
 import {
   Typography,
   Grid,
@@ -9,14 +9,14 @@ import {
   Dialog,
   withStyles,
   Card,
-  Hidden
-} from "@material-ui/core";
-import Create from "@material-ui/icons/Create.js";
-import Delete from "@material-ui/icons/Delete.js";
-import { Link } from "react-router-dom";
-import { styles } from "../material-ui/styles.js";
-import Loadable from "react-loadable";
-import { ItemCard } from "../../components";
+  Hidden,
+} from '@material-ui/core';
+import Create from '@material-ui/icons/Create.js';
+import Delete from '@material-ui/icons/Delete.js';
+import { Link } from 'react-router-dom';
+import { styles } from '../material-ui/styles.js';
+import Loadable from 'react-loadable';
+import { ItemCard } from '../../components';
 
 function Loading({ error }) {
   if (error) {
@@ -27,8 +27,8 @@ function Loading({ error }) {
 }
 
 const DeleteItem = Loadable({
-  loader: () => import("../../components/reusable/deleteitem.js"),
-  loading: Loading
+  loader: () => import('../../components/reusable/deleteitem.js'),
+  loading: Loading,
 });
 
 //  This component will render as a child of home on the
@@ -39,7 +39,7 @@ class NoteView extends Component {
   constructor() {
     super();
     this.state = {
-      deleting: false
+      deleting: false,
     };
   }
 
@@ -68,9 +68,9 @@ class NoteView extends Component {
             <React.Fragment>
               <Grid
                 container
-                direction="row"
-                justify="space-around"
-                alignItems="center"
+                direction='row'
+                justify='space-around'
+                alignItems='center'
                 spacing={6}
               >
                 <Grid item xs={2}>
@@ -81,10 +81,7 @@ class NoteView extends Component {
                   </Link>
                 </Grid>
                 <Grid item xs={8}>
-                  <Typography
-                    variant="h6"
-                    className={classes.typography_title}
-                  >
+                  <Typography variant='h6' className={classes.typography_title}>
                     {data.note.title}
                   </Typography>
                   <br />
@@ -96,7 +93,7 @@ class NoteView extends Component {
                   </IconButton>
                 </Grid>
               </Grid>
-              <Card style={{ width: "90%", height: "40vh", margin: "auto" }}>
+              <Card style={{ width: '90%', height: '40vh', margin: 'auto' }}>
                 <Typography paragraph className={classes.note}>
                   {data.note.content}
                 </Typography>
@@ -105,15 +102,17 @@ class NoteView extends Component {
               <br />
               <Grid container spacing={6}>
                 <Grid item xs={12} md={4}>
-                  <Typography style={{ fontSize: "18px" }}>
-                    Created On:{" "}
-                    {`${created.getMonth() +
-                      1}/${created.getDate()}/${created.getFullYear()}`}
+                  <Typography style={{ fontSize: '18px' }}>
+                    Created On:{' '}
+                    {`${
+                      created.getMonth() + 1
+                    }/${created.getDate()}/${created.getFullYear()}`}
                   </Typography>
-                  <Typography style={{ fontSize: "18px" }}>
-                    Modified On:{" "}
-                    {`${modified.getMonth() +
-                      1}/${modified.getDate()}/${modified.getFullYear()}`}
+                  <Typography style={{ fontSize: '18px' }}>
+                    Modified On:{' '}
+                    {`${
+                      modified.getMonth() + 1
+                    }/${modified.getDate()}/${modified.getFullYear()}`}
                   </Typography>
                 </Grid>
                 <Grid item xs={4} />
@@ -121,8 +120,8 @@ class NoteView extends Component {
                   <Hidden xsUp={!data.note.job}>
                     <Typography
                       style={{
-                        fontSize: "18px",
-                        fontFamily: "'Cinzel', serif"
+                        fontSize: '18px',
+                        fontFamily: "'Cinzel', serif",
                       }}
                       className={classes.highlight}
                     >
@@ -131,7 +130,7 @@ class NoteView extends Component {
                     <Card raised className={classes.item_card_small}>
                       <ItemCard
                         after_path={this.props.location.pathname}
-                        type="job"
+                        type='job'
                         item={data.note.job}
                         refetch={refetch}
                       />
@@ -141,7 +140,7 @@ class NoteView extends Component {
                 <Grid item xs={2} md={4}>
                   <Hidden xsUp={!data.note.client}>
                     <Typography
-                      style={{ fontSize: "18px" }}
+                      style={{ fontSize: '18px' }}
                       className={classes.highlight}
                     >
                       Attached Client
@@ -149,7 +148,7 @@ class NoteView extends Component {
                     <Card raised className={classes.item_card_small}>
                       <ItemCard
                         after_path={this.props.location.pathname}
-                        type="client"
+                        type='client'
                         item={data.note.client}
                         refetch={refetch}
                       />
@@ -160,9 +159,9 @@ class NoteView extends Component {
               <Dialog open={this.state.deleting} onClose={this.cancelDelete}>
                 <DeleteItem
                   cancelDelete={this.cancelDelete}
-                  type="note"
+                  type='note'
                   item={data.note}
-                  after_path="/notes"
+                  after_path='/notes'
                 />
               </Dialog>
             </React.Fragment>

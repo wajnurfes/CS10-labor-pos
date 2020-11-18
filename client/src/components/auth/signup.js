@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Formik, Field, Form, ErrorMessage } from "formik";
+import React, { Component } from 'react';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
 import {
   withStyles,
   Step,
@@ -9,56 +9,53 @@ import {
   CssBaseline,
   Typography,
   Grid,
-  Button
-} from "@material-ui/core";
-import { Mutation } from "react-apollo";
-import { Redirect } from "react-router";
-import { CREATE_USER } from "../../mutations";
-import { withRouter } from "react-router";
-import { TextField } from "../../components";
-import { styles } from "../material-ui/styles";
-import { STATE_LIST } from "../../constants";
-import { AUTH_TOKEN } from "../../constants.js";
-import classNames from "classnames";
-const Yup = require("yup");
+  Button,
+} from '@material-ui/core';
+import { Mutation } from 'react-apollo';
+import { Redirect } from 'react-router';
+import { CREATE_USER } from '../../mutations';
+import { withRouter } from 'react-router';
+import { TextField } from '../../components';
+import { styles } from '../material-ui/styles';
+import { STATE_LIST } from '../../constants';
+import { AUTH_TOKEN } from '../../constants.js';
+import classNames from 'classnames';
+const Yup = require('yup');
 
 const UserSchema = Yup.object().shape({
   username: Yup.string()
-    .max(150, "Username must be under 150 characters")
-    .required("Username is a required field"),
-  password: Yup.string().required("Password is a required field"),
+    .max(150, 'Username must be under 150 characters')
+    .required('Username is a required field'),
+  password: Yup.string().required('Password is a required field'),
   email: Yup.string()
-    .required("Email is a required field")
-    .email("Please enter a valid email")
+    .required('Email is a required field')
+    .email('Please enter a valid email'),
 });
 
 const ContractorSchema = Yup.object().shape({
   businessName: Yup.string().max(
     100,
-    "Business Name must be fewer than 100 characters"
+    'Business Name must be fewer than 100 characters'
   ),
   firstName: Yup.string()
-    .max(30, "First name must be fewer than 30 characters")
-    .required("First Name is a required field"),
+    .max(30, 'First name must be fewer than 30 characters')
+    .required('First Name is a required field'),
   lastName: Yup.string()
-    .max(150, "Last Name must be fewer than 150 characters")
-    .required("Last Name is a required field"),
+    .max(150, 'Last Name must be fewer than 150 characters')
+    .required('Last Name is a required field'),
   streetAddress: Yup.string()
-    .max(150, "Street Address must be fewer than 100 characters")
-    .required("Street Address is a required field"),
+    .max(150, 'Street Address must be fewer than 100 characters')
+    .required('Street Address is a required field'),
   city: Yup.string()
-    .max(70, "City must be fewer than 70 characters")
-    .required("City is a required field"),
-  state: Yup.string().required("State is a required field"),
-  zipcode: Yup.string()
-    .max(10)
-    .min(5)
-    .required("Zipcode is a required field")
+    .max(70, 'City must be fewer than 70 characters')
+    .required('City is a required field'),
+  state: Yup.string().required('State is a required field'),
+  zipcode: Yup.string().max(10).min(5).required('Zipcode is a required field'),
 });
 
 const ValidationSchemas = [UserSchema, ContractorSchema];
 
-const steps = ["Account details", "Contact information"];
+const steps = ['Account details', 'Contact information'];
 
 class Wizard extends Component {
   static Page = ({ children }) => children;
@@ -67,21 +64,21 @@ class Wizard extends Component {
     this.state = {
       page: 0,
       values: props.initialValues,
-      isAuthenticated: false
+      isAuthenticated: false,
     };
   }
 
-  next = values => {
+  next = (values) => {
     // console.log("Next props", this.props);
-    this.setState(state => ({
+    this.setState((state) => ({
       page: Math.min(state.page + 1, this.props.children.length - 1),
-      values
+      values,
     }));
   };
 
   previous = () =>
-    this.setState(state => ({
-      page: Math.max(state.page - 1, 0)
+    this.setState((state) => ({
+      page: Math.max(state.page - 1, 0),
     }));
 
   handleSubmit = (values, bag) => {
@@ -109,25 +106,25 @@ class Wizard extends Component {
         state: values.state,
         username: values.username,
         password: values.password,
-        email: values.email
-      }
+        email: values.email,
+      },
     });
   };
 
-  _confirm = async data => {
+  _confirm = async (data) => {
     const { token, user } = data.createUser;
     this._saveUserData(token, user.id, user.premium);
     // changed to fix heroku
     this.setState({
-      isAuthenticated: true
+      isAuthenticated: true,
     });
   };
 
   // save token to localStorage
   _saveUserData = (token, id, premium) => {
     localStorage.setItem(AUTH_TOKEN, token);
-    localStorage.setItem("USER_ID", id);
-    localStorage.setItem("USER_PREMIUM", premium);
+    localStorage.setItem('USER_ID', id);
+    localStorage.setItem('USER_PREMIUM', premium);
   };
 
   render() {
@@ -136,7 +133,7 @@ class Wizard extends Component {
     const activePage = React.Children.toArray(children)[page];
     const isLastPage = page === React.Children.count(children) - 1;
     if (isAuthenticated) {
-      return <Redirect to="/" />;
+      return <Redirect to='/' />;
     }
     return (
       <Formik
@@ -148,13 +145,13 @@ class Wizard extends Component {
         {({ values, handleSubmit, isValid, dirty }) => (
           <Mutation
             mutation={CREATE_USER}
-            errorPolicy="all"
-            onCompleted={data => this._confirm(data)}
+            errorPolicy='all'
+            onCompleted={(data) => this._confirm(data)}
           >
             {(createUser, { loading, error }) => (
-              <Form onSubmit={handleSubmit} style={{ margin: "auto" }}>
+              <Form onSubmit={handleSubmit} style={{ margin: 'auto' }}>
                 <Stepper activeStep={page}>
-                  {steps.map(label => (
+                  {steps.map((label) => (
                     <Step key={label}>
                       <StepLabel>{label}</StepLabel>
                     </Step>
@@ -162,12 +159,12 @@ class Wizard extends Component {
                 </Stepper>
                 <Typography
                   style={{
-                    marginTop: "10px",
-                    fontSize: "20px",
-                    textShadow: "1px 1px goldenrod",
-                    marginBottom: "-20px"
+                    marginTop: '10px',
+                    fontSize: '20px',
+                    textShadow: '1px 1px goldenrod',
+                    marginBottom: '-20px',
                   }}
-                  align="center"
+                  align='center'
                 >
                   Create Account
                 </Typography>
@@ -176,8 +173,8 @@ class Wizard extends Component {
                   <pre>
                     {error.graphQLErrors.map(
                       ({ message }, i) =>
-                        message.includes("duplicate") && (
-                          <Typography key={i} align="center" color="error">
+                        message.includes('duplicate') && (
+                          <Typography key={i} align='center' color='error'>
                             Username already exists
                             <br />
                             Please choose another username on Page 1.
@@ -187,14 +184,14 @@ class Wizard extends Component {
                   </pre>
                 )}
                 <div
-                  className="buttons"
-                  style={{ display: "flex", justifyContent: "space-between" }}
+                  className='buttons'
+                  style={{ display: 'flex', justifyContent: 'space-between' }}
                 >
                   {page > 0 && (
                     <Button
-                      type="submit"
-                      color="primary"
-                      variant="contained"
+                      type='submit'
+                      color='primary'
+                      variant='contained'
                       onClick={this.previous}
                     >
                       « Previous
@@ -202,17 +199,17 @@ class Wizard extends Component {
                   )}
                   {loading && <Typography>Loading ...</Typography>}
                   {!isLastPage && (
-                    <Button type="submit" color="primary" variant="contained">
+                    <Button type='submit' color='primary' variant='contained'>
                       Next »
                     </Button>
                   )}
                   {isLastPage && (
                     <Button
-                      type="submit"
-                      variant="contained"
-                      color="primary"
+                      type='submit'
+                      variant='contained'
+                      color='primary'
                       disabled={!isValid || !dirty}
-                      onClick={e => {
+                      onClick={(e) => {
                         e.preventDefault();
                         this.submit(createUser, values, e);
                       }}
@@ -224,66 +221,66 @@ class Wizard extends Component {
               </Form>
             )}
           </Mutation>
-        )} 
+        )}
       </Formik>
     );
   }
 }
 
-const CreateUser = props => (
+const CreateUser = (props) => (
   <React.Fragment>
     <CssBaseline />
 
     <Wizard
       initialValues={{
-        username: "",
-        password: "",
-        email: "",
-        firstName: "",
-        lastName: "",
-        businessName: "",
-        streetAddress: "",
-        city: "",
-        state: "",
-        zipcode: ""
+        username: '',
+        password: '',
+        email: '',
+        firstName: '',
+        lastName: '',
+        businessName: '',
+        streetAddress: '',
+        city: '',
+        state: '',
+        zipcode: '',
       }}
-      onSubmit={actions => {
+      onSubmit={(actions) => {
         actions.setSubmitting(false);
       }}
     >
       <Wizard.Page>
         <Paper className={props.classes.paper}>
-          <Grid container justify="center">
+          <Grid container justify='center'>
             <Field
-              name="username"
-              placeholder="Username"
+              name='username'
+              placeholder='Username'
               component={TextField}
               fullWidth={true}
               className={props.classes.field}
-              label="Username"
-              variant="outlined"
+              label='Username'
+              variant='outlined'
               required
             />
             <Field
-              name="password"
-              type="password"
-              placeholder="Please select a secure password"
+              name='password'
+              type='password'
+              placeholder='Please select a secure password'
               component={TextField}
               fullWidth={true}
-              variant="outlined"
+              variant='outlined'
               className={props.classes.field}
-              label="Password"
+              label='Password'
               required
             />
             <Field
-              name="email"
-              type="email"
-              placeholder="Email"
+              name='email'
+              type='email'
+              placeholder='Email'
               component={TextField}
               fullWidth={true}
               className={props.classes.field}
-              label="Email"
-              variant="outlined"
+              label='Email'
+              variant='outlined'
               required
             />
           </Grid>
@@ -291,53 +288,53 @@ const CreateUser = props => (
       </Wizard.Page>
       <Wizard.Page>
         <Paper className={props.classes.paper}>
-          <Grid container justify="center">
+          <Grid container justify='center'>
             <Field
-              name="firstName"
-              placeholder="First Name"
+              name='firstName'
+              placeholder='First Name'
               component={TextField}
               fullWidth={true}
-              variant="outlined"
+              variant='outlined'
               className={props.classes.field}
-              label="First Name"
+              label='First Name'
               required
             />
             <Field
-              name="lastName"
-              placeholder="Last Name"
+              name='lastName'
+              placeholder='Last Name'
               component={TextField}
               fullWidth={true}
-              variant="outlined"
+              variant='outlined'
               className={props.classes.field}
-              label="Last Name"
+              label='Last Name'
               required
             />
             <Field
-              name="businessName"
-              placeholder="Business Name"
+              name='businessName'
+              placeholder='Business Name'
               component={TextField}
               fullWidth={true}
-              variant="outlined"
+              variant='outlined'
               className={props.classes.field}
-              label="Business Name"
+              label='Business Name'
             />
             <Field
-              name="streetAddress"
-              placeholder="Street Address"
+              name='streetAddress'
+              placeholder='Street Address'
               component={TextField}
               fullWidth={true}
-              variant="outlined"
-              label="Street Address"
+              variant='outlined'
+              label='Street Address'
               className={props.classes.field}
               required
             />
             <Field
-              name="city"
-              placeholder="City"
+              name='city'
+              placeholder='City'
               component={TextField}
               fullWidth={true}
-              label="City"
-              variant="outlined"
+              label='City'
+              variant='outlined'
               className={classNames(
                 props.classes.field,
                 props.classes.space_below
@@ -345,39 +342,39 @@ const CreateUser = props => (
               required
             />
             <Field
-              id="field-state"
-              select="true"
-              label="State"
-              name="state"
-              placeholder="State"
-              component="select"
-              variant="outlined"
-              margin="normal"
-              style={{ width: "90%", height: "56px" }}
+              id='field-state'
+              select='true'
+              label='State'
+              name='state'
+              placeholder='State'
+              component='select'
+              variant='outlined'
+              margin='normal'
+              style={{ width: '90%', height: '56px' }}
               className={props.classes.field}
             >
-              {STATE_LIST.map(state => (
+              {STATE_LIST.map((state) => (
                 <option key={state.label} value={state.label}>
                   {state.label}
                 </option>
               ))}
             </Field>
             <ErrorMessage
-              name="state"
-              component="div"
+              name='state'
+              component='div'
               style={{
-                color: "#f44336",
-                fontWeight: "300"
+                color: '#f44336',
+                fontWeight: '300',
               }}
             />
             <Field
-              name="zipcode"
-              placeholder="Zipcode"
+              name='zipcode'
+              placeholder='Zipcode'
               component={TextField}
               fullWidth={true}
               className={props.classes.field}
-              variant="outlined"
-              label="Zipcode"
+              variant='outlined'
+              label='Zipcode'
               required
             />
           </Grid>

@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router";
-import NoteForm from "./noteform";
-import { DETAILED_NOTE_BY_ID } from "../../queries";
-import { Query } from "react-apollo";
-import { Typography } from "@material-ui/core";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router';
+import NoteForm from './noteform';
+import { DETAILED_NOTE_BY_ID } from '../../queries';
+import { Query } from 'react-apollo';
+import { Typography } from '@material-ui/core';
 
 //  This component will render on the /notes/:id/edit route when the user is logged in
 //  It is a child of the home component.
@@ -23,9 +23,9 @@ class EditNote extends Component {
           return (
             <div>
               <NoteForm
-                mode="edit"
+                mode='edit'
                 note={data.note}
-                after_url="/notes"
+                after_url='/notes'
                 refetch={refetch}
               />
             </div>

@@ -1,7 +1,6 @@
-import React from "react";
-import { TextField } from "@material-ui/core";
-import PropTypes from "prop-types";
-
+import React from 'react';
+import { TextField } from '@material-ui/core';
+import PropTypes from 'prop-types';
 
 const StyledTextField = ({
   field,
@@ -12,7 +11,7 @@ const StyledTextField = ({
   <TextField
     {...field}
     {...props}
-    value={field.value || ""}
+    value={field.value || ''}
     error={Boolean(touched[field.name] && errors[field.name])}
     label={(touched[field.name] && errors[field.name]) || label}
   />
@@ -23,12 +22,12 @@ StyledTextField.propTypes = {
     name: PropTypes.string,
     value: PropTypes.any,
     onChange: PropTypes.func,
-    onBlur: PropTypes.func
+    onBlur: PropTypes.func,
   }).isRequired,
   form: PropTypes.shape({
     touched: PropTypes.object,
-    errors: PropTypes.object
-  }).isRequired
+    errors: PropTypes.object,
+  }).isRequired,
 };
 
 export default StyledTextField;

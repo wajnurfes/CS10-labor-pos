@@ -1,20 +1,20 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import {
   Typography,
   Grid,
   Button,
   withStyles,
-  Hidden
-} from "@material-ui/core";
-import { Mutation, Query } from "react-apollo";
-import { CREATE_PART, UPDATE_PART } from "../../mutations.js";
-import { QUERY_ALL_JOBS } from "../../queries.js";
-import { styles } from "../material-ui/styles.js";
-import { Formik, Form, Field } from "formik";
-import { TextField } from "../../components";
-import classNames from "classnames";
-const Yup = require("yup");
+  Hidden,
+} from '@material-ui/core';
+import { Mutation, Query } from 'react-apollo';
+import { CREATE_PART, UPDATE_PART } from '../../mutations.js';
+import { QUERY_ALL_JOBS } from '../../queries.js';
+import { styles } from '../material-ui/styles.js';
+import { Formik, Form, Field } from 'formik';
+import { TextField } from '../../components';
+import classNames from 'classnames';
+const Yup = require('yup');
 
 //  This component will render on the /parts/:id/edit route when the user is logged in
 //  It is a child of the home component.
@@ -24,13 +24,13 @@ const Yup = require("yup");
 //Schema for validation
 const PartSchema = Yup.object().shape({
   name: Yup.string()
-    .max(150, "Name must be under 100 characters")
-    .required("Name is a required field"),
+    .max(150, 'Name must be under 100 characters')
+    .required('Name is a required field'),
   description: Yup.string(),
   cost: Yup.number()
-    .required("Cost is a required field")
-    .max(1000000000, "Cost must be less than 1,000,000,000"),
-  job: Yup.string()
+    .required('Cost is a required field')
+    .max(1000000000, 'Cost must be less than 1,000,000,000'),
+  job: Yup.string(),
 });
 
 class PartForm extends Component {
@@ -38,27 +38,27 @@ class PartForm extends Component {
     const { classes } = this.props;
     //  Here, we default some variables to their values that will be used in create mode
     let chosen_mutation = CREATE_PART;
-    let title_text = "Add Part";
-    let button_text = "Create";
+    let title_text = 'Add Part';
+    let button_text = 'Create';
     let edit_part = {
-      name: "",
-      description: "",
-      cost: "",
-      job: ""
+      name: '',
+      description: '',
+      cost: '',
+      job: '',
     };
     // if in edit mode we change values to reflect that
-    if (this.props.mode === "edit") {
+    if (this.props.mode === 'edit') {
       chosen_mutation = UPDATE_PART;
       title_text = `Update ${this.props.part.name}`;
-      button_text = "Update";
+      button_text = 'Update';
       // load in values of item we're updating
       for (let key in this.props.part) {
-        if (this.props.part[key] === null) edit_part[key] = "";
+        if (this.props.part[key] === null) edit_part[key] = '';
         else edit_part[key] = this.props.part[key];
       }
       //  Load in either the appropriate ids or empty strings for jobs
       if (edit_part.job) edit_part.job = edit_part.job.id;
-    } else if (this.props.mode === "modal") {
+    } else if (this.props.mode === 'modal') {
       edit_part.job = this.props.parent.id;
     }
 
@@ -73,7 +73,7 @@ class PartForm extends Component {
           for (let i = 0; i < job_array.length; i++) {
             job_list.push({
               value: job_array[i].node.id,
-              label: job_array[i].node.name
+              label: job_array[i].node.name,
             });
           }
           return (
@@ -82,11 +82,11 @@ class PartForm extends Component {
                 job: edit_part.job,
                 name: edit_part.name,
                 cost: edit_part.cost,
-                description: edit_part.description
+                description: edit_part.description,
               }}
               // tells formik to validate against our pre-defined Part Schema
               validationSchema={PartSchema}
-              onSubmit={event => {
+              onSubmit={(event) => {
                 event.preventDefault();
               }}
             >
@@ -94,91 +94,91 @@ class PartForm extends Component {
                 return (
                   <Mutation
                     mutation={chosen_mutation}
-                    onCompleted={data => this._confirm(data)}
+                    onCompleted={(data) => this._confirm(data)}
                   >
                     {(mutatePart, { loading, error }) => (
                       <div>
                         <Form
-                          onSubmit={event => {
+                          onSubmit={(event) => {
                             event.preventDefault();
                             let part_variables = {
                               name: values.name,
                               description: values.description,
                               job: values.job,
-                              cost: values.cost
+                              cost: values.cost,
                             };
 
                             for (let key in part_variables) {
-                              if (part_variables[key] === "") {
-                                if (this.props.mode === "edit")
+                              if (part_variables[key] === '') {
+                                if (this.props.mode === 'edit')
                                   delete part_variables[key];
                               }
                             }
                             //  If we are in edit mode, we need to send up the part id.
-                            if (this.props.mode === "edit")
+                            if (this.props.mode === 'edit')
                               part_variables.id = this.props.match.params.id;
                             //  Send the mutation ...
                             mutatePart({
-                              variables: part_variables
+                              variables: part_variables,
                             });
                           }}
                         >
                           <Grid container>
-                            <Grid container justify="center">
+                            <Grid container justify='center'>
                               <Typography
                                 className={classes.typography_title}
-                                variant="h6"
-                                style={{ marginBottom: "20px" }}
+                                variant='h6'
+                                style={{ marginBottom: '20px' }}
                               >
                                 {title_text}
                               </Typography>
                             </Grid>
-                            <Grid container justify="center">
+                            <Grid container justify='center'>
                               <Field
                                 component={TextField}
-                                id="field-name"
-                                label="Name"
-                                name="name"
+                                id='field-name'
+                                label='Name'
+                                name='name'
                                 className={classNames(classes.field)}
                                 value={values.name}
-                                margin="normal"
-                                variant="outlined"
+                                margin='normal'
+                                variant='outlined'
                               />
                             </Grid>
-                            <Grid container justify="center">
+                            <Grid container justify='center'>
                               <Field
                                 component={TextField}
-                                id="field-description"
-                                label="Description"
+                                id='field-description'
+                                label='Description'
                                 multiline
-                                rows="8"
-                                rowsMax="8"
-                                name="description"
+                                rows='8'
+                                rowsMax='8'
+                                name='description'
                                 className={classes.field}
                                 value={values.description}
-                                margin="normal"
-                                variant="outlined"
+                                margin='normal'
+                                variant='outlined'
                               />
                             </Grid>
-                            <Grid container justify="center">
+                            <Grid container justify='center'>
                               <Field
                                 component={TextField}
-                                id="field-cost"
-                                label="Cost"
-                                name="cost"
+                                id='field-cost'
+                                label='Cost'
+                                name='cost'
                                 className={classNames(
                                   classes.margin,
                                   classes.field
                                 )}
                                 value={values.cost}
-                                margin="normal"
-                                variant="outlined"
+                                margin='normal'
+                                variant='outlined'
                               />
                               <div
                                 style={{
-                                  color: "white",
-                                  textShadow: "2px 2px black",
-                                  width: "90%"
+                                  color: 'white',
+                                  textShadow: '2px 2px black',
+                                  width: '90%',
                                 }}
                               >
                                 Note:
@@ -188,19 +188,19 @@ class PartForm extends Component {
                             </Grid>
                             <Grid
                               container
-                              justify="center"
-                              alignContent="center"
-                              alignItems="center"
-                              direction="column"
+                              justify='center'
+                              alignContent='center'
+                              alignItems='center'
+                              direction='column'
                             >
                               <Field
-                                component="select"
-                                id="field-job"
-                                disabled={this.props.mode === "modal"}
-                                label="Job"
-                                name="job"
+                                component='select'
+                                id='field-job'
+                                disabled={this.props.mode === 'modal'}
+                                label='Job'
+                                name='job'
                                 style={{
-                                  height: "56px"
+                                  height: '56px',
                                 }}
                                 className={classNames(
                                   classes.margin,
@@ -208,14 +208,14 @@ class PartForm extends Component {
                                   classes.field
                                 )}
                               >
-                                {job_list.map(job => (
+                                {job_list.map((job) => (
                                   <option key={job.value} value={job.value}>
                                     {job.label}
                                   </option>
                                 ))}
                               </Field>
                               <div
-                                style={{ width: "90%" }}
+                                style={{ width: '90%' }}
                                 className={classes.text_color}
                               >
                                 Job
@@ -224,14 +224,14 @@ class PartForm extends Component {
                           </Grid>
                           <Grid
                             container
-                            justify="space-around"
+                            justify='space-around'
                             className={classes.margin}
                           >
-                            <Hidden xsUp={this.props.mode !== "modal"}>
+                            <Hidden xsUp={this.props.mode !== 'modal'}>
                               <Button
                                 onClick={this.props.cancelAdd}
-                                variant="contained"
-                                color="secondary"
+                                variant='contained'
+                                color='secondary'
                                 className={classes.padded_button}
                               >
                                 Cancel
@@ -239,10 +239,10 @@ class PartForm extends Component {
                             </Hidden>
                             <Button
                               disabled={!isValid || !dirty}
-                              variant="contained"
-                              color="primary"
+                              variant='contained'
+                              color='primary'
                               className={classes.padded_button}
-                              type="submit"
+                              type='submit'
                             >
                               {button_text}
                             </Button>
@@ -264,8 +264,8 @@ class PartForm extends Component {
     );
   }
 
-  _confirm = async data => {
-    if (this.props.mode === "modal") {
+  _confirm = async (data) => {
+    if (this.props.mode === 'modal') {
       data && this.props.cancelAdd();
       data && this.props.refetch();
     } else {

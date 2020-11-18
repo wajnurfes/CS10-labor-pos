@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router";
-import { Grid, Card, withStyles, Button, Typography } from "@material-ui/core";
-import { ItemCard } from "../../components";
-import { styles } from "../material-ui/styles.js";
-import withWidth from "@material-ui/core/withWidth";
-import AddCircle from "@material-ui/icons/AddCircle.js";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router';
+import { Grid, Card, withStyles, Button, Typography } from '@material-ui/core';
+import { ItemCard } from '../../components';
+import { styles } from '../material-ui/styles.js';
+import withWidth from '@material-ui/core/withWidth';
+import AddCircle from '@material-ui/icons/AddCircle.js';
 
 //  This component shows a list of cards representing one of our item types.
 //  It renders as a child of many components.
@@ -20,7 +20,7 @@ class CardList extends Component {
   constructor() {
     super();
     this.state = {
-      page: 0
+      page: 0,
     };
   }
 
@@ -30,8 +30,8 @@ class CardList extends Component {
 
   render() {
     let { classes } = this.props;
-    let user_premium = localStorage.getItem("USER_PREMIUM");
-    if (user_premium === "true") user_premium = true;
+    let user_premium = localStorage.getItem('USER_PREMIUM');
+    if (user_premium === 'true') user_premium = true;
     else user_premium = false;
     let card_array = [];
     if (user_premium) {
@@ -66,8 +66,8 @@ class CardList extends Component {
       }
     }
     if (
-      this.props.location.pathname === "/clients" ||
-      this.props.location.pathname === "/notes"
+      this.props.location.pathname === '/clients' ||
+      this.props.location.pathname === '/notes'
     ) {
       if (!user_premium && this.props.items.length < 6) {
         return (
@@ -76,20 +76,20 @@ class CardList extends Component {
               <Button
                 onClick={this.props.createMethod}
                 className={classes.add_button}
-                variant="contained"
+                variant='contained'
               >
                 <AddCircle />
-                <Typography className={classes.add_text}>{`New ${
-                  this.props.type
-                }`}</Typography>
+                <Typography
+                  className={classes.add_text}
+                >{`New ${this.props.type}`}</Typography>
               </Button>
             </Grid>
             <Grid
               container
-              direction="row"
-              justify="center"
-              alignItems="center"
-              alignContent="center"
+              direction='row'
+              justify='center'
+              alignItems='center'
+              alignContent='center'
               spacing={6}
             >
               {card_array}
@@ -103,23 +103,23 @@ class CardList extends Component {
               <Button
                 onClick={this.props.createMethod}
                 className={classes.add_button}
-                variant="contained"
-                style={{ marginTop: "-20px", padding: "8px 30px" }}
+                variant='contained'
+                style={{ marginTop: '-20px', padding: '8px 30px' }}
               >
                 <AddCircle />
                 &nbsp;&nbsp;
-                <Typography className={classes.add_text}>{`New ${
-                  this.props.type
-                }`}</Typography>
+                <Typography
+                  className={classes.add_text}
+                >{`New ${this.props.type}`}</Typography>
               </Button>
             </Grid>
             <Grid item xs={11} md={10} />
             <Grid
               container
-              direction="row"
-              justify="center"
-              alignItems="center"
-              alignContent="center"
+              direction='row'
+              justify='center'
+              alignItems='center'
+              alignContent='center'
               spacing={6}
             >
               {card_array}
@@ -131,10 +131,10 @@ class CardList extends Component {
     return (
       <Grid
         container
-        direction="row"
-        justify="center"
-        alignItems="center"
-        alignContent="center"
+        direction='row'
+        justify='center'
+        alignItems='center'
+        alignContent='center'
         spacing={6}
       >
         {card_array}

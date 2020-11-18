@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   Button,
   Dialog,
@@ -6,12 +6,12 @@ import {
   Typography,
   withStyles,
   withMobileDialog,
-  Paper
-} from "@material-ui/core";
-import { styles } from "../material-ui/styles.js";
-import { Login, Home, CreateUser } from "../../components";
-import { AUTH_TOKEN } from "../../constants";
-import { withRouter } from "react-router";
+  Paper,
+} from '@material-ui/core';
+import { styles } from '../material-ui/styles.js';
+import { Login, Home, CreateUser } from '../../components';
+import { AUTH_TOKEN } from '../../constants';
+import { withRouter } from 'react-router';
 
 // import ContactForm from "../../components/auth/contractor";
 
@@ -36,20 +36,20 @@ class LandingPage extends Component {
       login_modal: false,
       create_modal: false,
       contractor_modal: false,
-      username: "",
-      password: "",
-      email: ""
+      username: '',
+      password: '',
+      email: '',
     };
     this.handleLogin = this.handleLogin.bind(this);
   }
 
   //This method is passed down to the user modal component
   //so that it can affect the state of this component.
-  setUserInformation = info => {
+  setUserInformation = (info) => {
     this.setState({
       username: info.username,
       password: info.password,
-      email: info.email
+      email: info.email,
     });
   };
 
@@ -70,7 +70,7 @@ class LandingPage extends Component {
     this.setState({
       login_modal: false,
       contractor_modal: false,
-      create_modal: false
+      create_modal: false,
     });
   };
 
@@ -95,8 +95,8 @@ class LandingPage extends Component {
           <Grid container>
             <Grid item md={2}>
               <img
-                alt="A golden raccoon logo"
-                src={require("../../racoonbowtie.svg").default}
+                alt='A golden raccoon logo'
+                src={require('../../racoonbowtie.svg').default}
                 className={classes.image_large}
               />
             </Grid>
@@ -104,8 +104,8 @@ class LandingPage extends Component {
             <Grid item xs={6} md={2}>
               <Button
                 className={classes.padded_button}
-                variant="contained"
-                color="primary"
+                variant='contained'
+                color='primary'
                 onClick={this.handleCreateButton}
               >
                 Create Account
@@ -113,8 +113,8 @@ class LandingPage extends Component {
             </Grid>
             <Grid item xs={6} md={2}>
               <Button
-                variant="contained"
-                color="primary"
+                variant='contained'
+                color='primary'
                 onClick={this.handleLogin}
                 className={classes.padded_button}
               >
@@ -125,23 +125,23 @@ class LandingPage extends Component {
           <div>
             <Typography
               className={classes.typography_title_landing}
-              variant="h6"
+              variant='h6'
             >
               Contract Alchemy:
               <br />
               Turning POS Into Gold
             </Typography>
             <Typography className={classes.typography_paragraph_landing}>
-              {"Tired of balancing multiple projects?"} <br />
-              {"Struggling to keep track of how much you’re owed from whom?"}
+              {'Tired of balancing multiple projects?'} <br />
+              {'Struggling to keep track of how much you’re owed from whom?'}
             </Typography>
-            <Typography variant="h6" className={classes.emphasis}>
+            <Typography variant='h6' className={classes.emphasis}>
               Struggle no more!
             </Typography>
             <Button
               className={classes.padded_button}
-              variant="contained"
-              color="primary"
+              variant='contained'
+              color='primary'
               onClick={this.handleCreateButton}
             >
               Create Account

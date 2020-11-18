@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router";
-import PartForm from "./partform.js";
-import { DETAILED_PART_BY_ID } from "../../queries";
-import { Query } from "react-apollo";
-import { Typography } from "@material-ui/core";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router';
+import PartForm from './partform.js';
+import { DETAILED_PART_BY_ID } from '../../queries';
+import { Query } from 'react-apollo';
+import { Typography } from '@material-ui/core';
 
 //This component will render on the /parts/:id/edit route when the user is logged in
 //It is a child of the home component.
@@ -23,7 +23,7 @@ class EditPart extends Component {
           if (error) return <Typography>Error! {error.message}</Typography>;
           return (
             <div>
-              <PartForm mode="edit" part={data.part} refetch={refetch} />
+              <PartForm mode='edit' part={data.part} refetch={refetch} />
             </div>
           );
         }}

@@ -14,7 +14,7 @@ a {
 label {
   margin-top: -10px;
   text-shadow: 0.5px 0.5px 1px black;
-  font-family: "Helvetica, Arial";
+  font-family: 'Helvetica, Arial';
   font-size: 16px;
 }
 legend {

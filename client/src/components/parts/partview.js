@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import {
   Grid,
   Typography,
@@ -7,15 +7,15 @@ import {
   Dialog,
   withStyles,
   Card,
-  Paper
-} from "@material-ui/core";
-import { DETAILED_PART_BY_ID } from "../../queries.js";
-import { Query } from "react-apollo";
-import Create from "@material-ui/icons/Create.js";
-import Delete from "@material-ui/icons/Delete.js";
-import { Link } from "react-router-dom";
-import { styles } from "../material-ui/styles.js";
-import Loadable from "react-loadable";
+  Paper,
+} from '@material-ui/core';
+import { DETAILED_PART_BY_ID } from '../../queries.js';
+import { Query } from 'react-apollo';
+import Create from '@material-ui/icons/Create.js';
+import Delete from '@material-ui/icons/Delete.js';
+import { Link } from 'react-router-dom';
+import { styles } from '../material-ui/styles.js';
+import Loadable from 'react-loadable';
 
 function Loading({ error }) {
   if (error) {
@@ -26,8 +26,8 @@ function Loading({ error }) {
 }
 
 const DeleteItem = Loadable({
-  loader: () => import("../../components/reusable/deleteitem.js"),
-  loading: Loading
+  loader: () => import('../../components/reusable/deleteitem.js'),
+  loading: Loading,
 });
 
 //This component will render on the /parts/%partid route when the user is logged in
@@ -38,7 +38,7 @@ const DeleteItem = Loadable({
 //https://balsamiq.cloud/sc1hpyg/po5pcja/r773D
 class PartView extends Component {
   state = {
-    deleting: false
+    deleting: false,
   };
 
   handleDeleteButton = () => {
@@ -71,10 +71,7 @@ class PartView extends Component {
                 </Link>
               </Grid>
               <Grid item xs={10}>
-                <Typography
-                  className={classes.typography_title}
-                  variant="h6"
-                >
+                <Typography className={classes.typography_title} variant='h6'>
                   {data.part.name}
                 </Typography>
               </Grid>
@@ -92,19 +89,19 @@ class PartView extends Component {
               </Grid>
               <Grid item xs={12}>
                 <Card className={classes.card}>
-                  <Typography className={classes.typography}>{`Cost: $${
-                    data.part.cost
-                  }`}</Typography>
+                  <Typography
+                    className={classes.typography}
+                  >{`Cost: $${data.part.cost}`}</Typography>
                 </Card>
               </Grid>
               <Dialog
                 open={this.state.deleting}
                 onClose={this.cancelDelete}
-                className="delete-modal"
+                className='delete-modal'
               >
                 <DeleteItem
                   cancelDelete={this.cancelDelete}
-                  type="part"
+                  type='part'
                   item={data.part}
                   refetch={refetch}
                 />
