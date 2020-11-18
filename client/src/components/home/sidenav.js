@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {
-  ExpansionPanel,
-  ExpansionPanelDetails,
-  ExpansionPanelSummary,
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
   FormControlLabel,
   MenuItem,
   withStyles,
@@ -93,7 +93,7 @@ class SideNav extends Component {
             </Typography>
           </MenuItem>{' '}
         </Link>
-        <ExpansionPanel
+        <Accordion
           onChange={this.handleChange}
           className={classes.sidenav}
           style={{
@@ -101,7 +101,7 @@ class SideNav extends Component {
             boxShadow: 'none',
           }}
         >
-          <ExpansionPanelSummary
+          <AccordionSummary
             expandIcon={<ExpandMore />}
             style={{
               padding: '0',
@@ -113,8 +113,8 @@ class SideNav extends Component {
                 Themes
               </Typography>{' '}
             </MenuItem>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
+          </AccordionSummary>
+          <AccordionDetails>
             <FormControl component='fieldset' className={classes.formControl}>
               <RadioGroup
                 name='theme'
@@ -155,8 +155,8 @@ class SideNav extends Component {
                 />
               </RadioGroup>
             </FormControl>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
+          </AccordionDetails>
+        </Accordion>
         <MenuItem onClick={this.props.logout} styling={{ position: 'inherit' }}>
           <Typography className={classes.typography_menu}>Logout</Typography>
         </MenuItem>
