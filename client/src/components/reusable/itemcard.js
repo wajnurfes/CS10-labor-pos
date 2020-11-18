@@ -148,7 +148,6 @@ class ItemCard extends Component {
           );
         break;
       case 'note':
-        console.log('hi!');
         topRow = (
           <React.Fragment>
             <span className={classes.text_color} style={{ fontSize: '18px' }}>
