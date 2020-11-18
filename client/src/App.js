@@ -80,7 +80,7 @@ class App extends Component {
       background_image = false;
       lightened_background = grey['700'];
       sidenav_background = '#191919';
-      base_background = '#555555';
+      base_background = '#363636';
     }
     //  Create the theme for the app.
 
