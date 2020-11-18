@@ -77,10 +77,10 @@ class App extends Component {
       theme_type = 'dark';
       default_color = '#191919';
       paper_color = '#4c4c4c';
-      background_image = desk_image;
+      background_image = false;
       lightened_background = grey['700'];
       sidenav_background = '#191919';
-      base_background = '#ffffff';
+      base_background = '#555555';
     }
     //  Create the theme for the app.
 
