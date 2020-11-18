@@ -119,6 +119,7 @@ const styles = (theme) => ({
   list_item_reg: {
     padding: '10px',
     backgroundColor: theme.palette.background.paper,
+    color: theme.palette.text.secondary,
   },
   main_content: {
     textAlign: 'center',
