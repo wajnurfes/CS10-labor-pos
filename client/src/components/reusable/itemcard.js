@@ -141,10 +141,9 @@ class ItemCard extends Component {
           bottomRow = (
             <React.Fragment>
               <span className={classes.text_color} style={{ fontSize: '18px' }}>
-                Notes:
+                Notes: &nbsp;&nbsp;
+                {`${this.props.item.noteSet.edges.length}`}{' '}
               </span>
-              &nbsp;&nbsp;
-              {`${this.props.item.noteSet.edges.length}`}
             </React.Fragment>
           );
         break;
