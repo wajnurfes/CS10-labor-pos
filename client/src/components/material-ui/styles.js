@@ -114,6 +114,7 @@ const styles = (theme) => ({
   list_item_light: {
     padding: '10px',
     backgroundColor: theme.palette.lightened_background,
+    color: theme.palette.text.primary,
   },
   list_item_reg: {
     padding: '10px',

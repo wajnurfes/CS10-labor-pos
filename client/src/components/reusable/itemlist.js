@@ -116,11 +116,7 @@ class ItemList extends Component {
         list_items.push(
           <ListItem key={i} dense button className={item_class}>
             <Link to={`${path}/${current_item.id}`}>
-              <ListItemText disableTypography>
-                <Typography color='textPrimary'>
-                  {current_item[name_field]}
-                </Typography>
-              </ListItemText>
+              <ListItemText>{current_item[name_field]}</ListItemText>
             </Link>
             <ListItemSecondaryAction>
               <IconButton
